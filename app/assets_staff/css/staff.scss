@@ -1,4 +1,8 @@
 @import "vars";
+// begin bootstrap
+@import "bootstrap-sprockets";
+@import "bootstrap";
+// end bootstrap
 @import "font-awesome";
 @import "roboto-fontface";
 @import "reset.css";

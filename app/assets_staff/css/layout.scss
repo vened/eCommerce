@@ -1,14 +1,16 @@
 html,
 body{
     width: 100%;
-    min-height: 100%;
-
-    box-sizing: border-box;
-
-    background: $layout-background;
+    height: 100%;
 
     color: $base-font-color;
     font-size: $base-font-size;
     font-family: $base-font-family;
     font-weight: $base-font-weight;
+}
+body{
+    background: $layout-background;
+}
+*{
+    box-sizing: border-box;
 }

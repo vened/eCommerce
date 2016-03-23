@@ -5,7 +5,13 @@ gem 'rails', '4.2.6'
 gem 'pg', '~> 0.15'
 gem 'devise', '3.5.6'
 
+###### localisation ######
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
 gem 'uglifier', '>= 1.3.0'
 
