@@ -16,16 +16,20 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
 gem 'uglifier', '>= 1.3.0'
 
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
+gem 'sprockets', '>= 3.0.0'
+gem 'sprockets-es6'
+
 
 gem 'react-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-
 source 'https://rails-assets.org' do
+  gem 'rails-assets-react-bootstrap'
 end
 
 

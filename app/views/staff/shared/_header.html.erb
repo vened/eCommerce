@@ -31,6 +31,9 @@
                 <a href="#">Link</a>
             </li>
             <li><a href="#">Link</a></li>
+            <li>
+                <%= react_component('Post', { title: 'John' }, { prerender: true }) %>
+            </li>
         </ul>
     </div>
     <button type="button" class="navbar-toggle collapsed">
