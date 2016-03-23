@@ -23,25 +23,22 @@ angular.module('appConstants', []).constant('constants', {
 });
 
 
-app.run(function ($templateCache) {
-    $templateCache.put('templateId.html', 'This is the content of the template');
-});
 /**
  * app routes
  */
-app.config(['$routeProvider', '$locationProvider', 'constants', '$templateCache', function ($routeProvider, $locationProvider, constants, $templateCache) {
+app.config(function ($routeProvider, $locationProvider, constants) {
     console.log($routeProvider)
     $routeProvider
         .when('/', {
             controller: 'CategoriesIndexController',
-            templateUrl: $templateCache.get('templateId.html'),
+            templateUrl: 'components/index.html'
         })
         .when(constants.categories + '/:chapterId', {
             templateUrl: 'chapter.html',
             controller: 'ChapterController'
         });
     $locationProvider.html5Mode(false);
-}]);
+});
 
 appComponents.controller('CategoriesIndexController', function ($scope, $routeParams) {
     $scope.name = "BookController";
