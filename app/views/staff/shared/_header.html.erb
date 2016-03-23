@@ -1,3 +1,25 @@
-<header>
+<header class="b-header">
+    <div class="b-header__container">
 
+        <div class="b-header-brand">
+            <%= link_to "commerceCms", staff_root_path,
+                        class: 'b-header-link b-header-brand__item' %>
+        </div>
+
+        <% if admin_signed_in? %>
+            <div class="b-header-admin">
+
+                <div class="b-header-admin__item b-header-admin__current">
+                    <%= fa_icon "user", text: current_admin.email %>
+                </div>
+
+                <%= link_to destroy_admin_session_path,
+                            class:  'b-header-admin__item b-header-admin__logout b-header-link' do %>
+                    <%= fa_icon "sign-out", text: 'Выйти' %>
+                <%- end %>
+
+            </div>
+        <% end %>
+
+    </div>
 </header>
