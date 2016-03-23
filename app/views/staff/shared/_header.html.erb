@@ -14,7 +14,7 @@
                 </div>
 
                 <%= link_to destroy_admin_session_path,
-                            class:  'b-header-admin__item b-header-admin__logout b-header-link' do %>
+                            class: 'b-header-admin__item b-header-admin__logout b-header-link' do %>
                     <%= fa_icon "sign-out", text: 'Выйти' %>
                 <%- end %>
 
@@ -23,3 +23,18 @@
 
     </div>
 </header>
+
+<nav class="navbar navbar-default">
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Link</a></li>
+        </ul>
+    </div>
+    <button type="button" class="navbar-toggle collapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+</nav>
