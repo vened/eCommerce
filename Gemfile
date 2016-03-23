@@ -18,12 +18,12 @@ gem 'uglifier', '>= 1.3.0'
 
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
-gem 'sprockets', '>= 3.0.0'
-gem 'sprockets-es6'
+# gem 'therubyracer', platforms: :ruby
+# gem 'sprockets', '>= 3.0.0'
+# gem 'sprockets-es6'
 
 
-gem 'react-rails'
+gem 'react-rails', '~> 1.6.2'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc

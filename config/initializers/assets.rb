@@ -8,6 +8,5 @@ Rails.application.config.assets.paths << Rails.root.join("app", "assets_staff", 
 Rails.application.config.assets.paths << Rails.root.join("app", "assets_staff", "img")
 
 Rails.application.config.assets.precompile += %w( staff.js )
-Rails.application.config.assets.precompile += %w( server_rendering.js )
 Rails.application.config.assets.precompile += %w( staff.css )
 Rails.application.config.assets.precompile += %w( login.css )
