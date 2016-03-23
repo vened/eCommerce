@@ -1,6 +1,11 @@
 html,
 body{
+    min-height: 100%;
+
+    background: $layout-background;
+
+    color: $base-font-color;
     font-size: $base-font-size;
-    font-family: 'Roboto';
-    font-weight: 400;
+    font-family: $base-font-family;
+    font-weight: $base-font-weight;
 }

@@ -1,1 +1,15 @@
-$base-font-size: 14px;
+// BEGIN colors
+$light-gray: #f7f7f7;
+$black: #333;
+// END colors
+
+// BEGIN backgrounds
+$layout-background: $light-gray;
+// END backgrounds
+
+// BEGIN base-font
+$base-font-size: 12px;
+$base-font-family: 'Roboto', sans-serif;
+$base-font-weight: 400;
+$base-font-color: $black;
+// END base-font
