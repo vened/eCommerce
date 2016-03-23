@@ -40,6 +40,8 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.3.4)
       execjs
+    awesome_nested_set (3.0.3)
+      activerecord (>= 4.0.0, < 5)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -177,6 +179,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_nested_set (= 3.0.3)
   bootstrap-sass (~> 3.3.6)
   byebug
   devise (= 3.5.6)

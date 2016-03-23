@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 gem 'pg', '~> 0.15'
 gem 'devise', '3.5.6'
+gem 'awesome_nested_set', '3.0.3'
 
 ###### localisation ######
 gem 'rails-i18n'
