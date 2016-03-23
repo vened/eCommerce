@@ -30,5 +30,6 @@ class Post extends React.Component {
 }
 
 Post.propTypes = {
-    label: React.PropTypes.string
+    label: React.PropTypes.string,
+    items: React.PropTypes.arrays
 };
