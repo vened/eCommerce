@@ -11,26 +11,28 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
+gem 'js-routes'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
 gem 'uglifier', '>= 1.3.0'
-
-
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-# gem 'sprockets', '>= 3.0.0'
-# gem 'sprockets-es6'
-
-
-gem 'react-rails', '~> 1.6.2'
+gem 'react-rails', '1.6.2'
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
+
+gem 'angularjs-rails', '1.5.0'
+gem 'angular-rails-templates', :git => 'git@github.com:vened/angular-rails-templates.git'
+gem 'ngannotate-rails', '1.2.1'
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-react-bootstrap'
+
 end
+
+# See https://github.com/rails/execjs#readme for more supported runtimes
+gem 'therubyracer', platforms: :ruby
+
+
+gem 'jbuilder', '~> 2.0'
+gem 'sdoc', '~> 0.4.0', group: :doc
 
 
 # Use ActiveModel has_secure_password

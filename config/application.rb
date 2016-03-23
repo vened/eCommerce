@@ -1,8 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-# require 'sprockets/railtie'
-# require 'sprockets/es6'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -25,24 +23,7 @@ module ECommerce
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-
-    # config.react.addons                = true # defaults to false
-    # Rails.application.config.assets.configure do |env|
-    # env.register_transformer 'text/ecmascript-6', 'application/javascript', Sprockets::ES6.new('modules' => 'system', 'moduleIds' => true)
-    # end
-    # config.react.jsx_transform_options = {
-    #     blacklist: ['spec.functionName', 'validation.react', 'strict'], # default options
-    #     optional:  [], # pass extra babel options
-    #     whitelist: ["useStrict"] # even more options
-    # }
-
-    # config.react.server_renderer_pool_size ||= 1 # ExecJS doesn't allow more than one on MRI
-    # config.react.server_renderer_timeout   ||= 20 # seconds
-    # config.react.server_renderer           = React::ServerRendering::SprocketsRenderer
-    # config.react.server_renderer_options   = {
-    #     files:          ["react-server.js", "components.js"], # files to load for prerendering
-    #     replay_console: true, # if true, console.* will be replayed client-side
-    # }
-
+    config.angular_templates.module_name   = 'templates'
+    config.angular_templates.ignore_prefix = %w(components/)
   end
 end
