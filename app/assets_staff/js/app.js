@@ -5,10 +5,11 @@ var app = angular.module('eCommerceApp', [
     'ngRoute',
     'appComponents',
     'appConstants',
+    'templates'
 ]);
+angular.module('templates', []);
 var appComponents = angular.module('appComponents', []);
 var appConstants = angular.module('appConstants', []);
-
 
 /**
  * app headers config
@@ -31,7 +32,7 @@ app.config(function ($routeProvider, $locationProvider, constants) {
     $routeProvider
         .when('/', {
             controller: 'CategoriesIndexController',
-            templateUrl: 'components/index.html'
+            templateUrl: 'index.html'
         })
         .when(constants.categories + '/:chapterId', {
             templateUrl: 'chapter.html',
@@ -46,6 +47,6 @@ appComponents.controller('CategoriesIndexController', function ($scope, $routePa
 });
 
 appComponents.controller('MainController', function ($scope, $routeParams) {
-    console.log(44444444)
-    console.log($routeParams)
+    //console.log(44444444)
+    //console.log($routeParams)
 });

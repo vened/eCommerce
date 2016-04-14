@@ -14,4 +14,4 @@
 // require angular-loader
 //= require angular-route
 //= require ./app
-// require_tree ./components
+//= require_tree ./components

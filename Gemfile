@@ -20,8 +20,7 @@ gem 'react-rails', '1.6.2'
 gem 'turbolinks'
 
 gem 'angularjs-rails', '1.5.0'
-# gem 'angular-rails-templates', :git => 'git@github.com:vened/angular-rails-templates.git'
-gem 'angular-rails-templates'
+gem 'angular-rails-templates', '1.0.0'
 gem 'ngannotate-rails', '1.2.1'
 
 source 'https://rails-assets.org' do
