@@ -1,5 +1,5 @@
 module Staff
-  class DashboardController < StaffController
+  class RootController < StaffController
 
     def index
     end

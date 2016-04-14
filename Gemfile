@@ -11,20 +11,22 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
-gem 'js-routes'
+
 gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'font-awesome-rails'
+gem 'bootstrap-sass', '3.3.6'
+gem 'font-awesome-rails', '4.6.1.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'react-rails', '1.6.2'
 gem 'turbolinks'
 
-gem 'angularjs-rails', '1.5.0'
+gem 'js-routes', '1.2.5'
+# gem 'angularjs-rails', '1.5.0'
 gem 'angular-rails-templates', '1.0.0'
 gem 'ngannotate-rails', '1.2.1'
 
 source 'https://rails-assets.org' do
-
+  gem 'rails-assets-angular', '1.5.3'
+  gem 'rails-assets-angular-route', '1.5.3'
+  gem 'rails-assets-angular-bootstrap', '1.3.1'
 end
 
 # See https://github.com/rails/execjs#readme for more supported runtimes

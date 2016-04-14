@@ -10,8 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+// BEGIN LIBS
 //= require angular
-// require angular-loader
 //= require angular-route
+//= require angular-bootstrap
+// END LIBS
+
 //= require ./app
 //= require_tree ./components

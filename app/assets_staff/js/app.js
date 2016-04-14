@@ -5,7 +5,8 @@ var app = angular.module('eCommerceApp', [
     'ngRoute',
     'appComponents',
     'appConstants',
-    'templates'
+    'templates',
+    'ui.bootstrap'
 ]);
 angular.module('templates', []);
 var appComponents = angular.module('appComponents', []);
@@ -28,9 +29,9 @@ angular.module('appConstants', []).constant('constants', {
  * app routes
  */
 app.config(function ($routeProvider, $locationProvider, constants) {
-    console.log($routeProvider)
+    $locationProvider.html5Mode(true);
     $routeProvider
-        .when('/', {
+        .when(constants.categories, {
             controller: 'CategoriesIndexController',
             templateUrl: 'index.html'
         })
@@ -38,15 +39,9 @@ app.config(function ($routeProvider, $locationProvider, constants) {
             templateUrl: 'chapter.html',
             controller: 'ChapterController'
         });
-    $locationProvider.html5Mode(false);
 });
 
-appComponents.controller('CategoriesIndexController', function ($scope, $routeParams) {
-    $scope.name = "BookController";
-    $scope.params = $routeParams;
-});
 
 appComponents.controller('MainController', function ($scope, $routeParams) {
-    //console.log(44444444)
-    //console.log($routeParams)
+
 });
