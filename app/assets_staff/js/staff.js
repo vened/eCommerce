@@ -12,6 +12,8 @@
 //
 
 // BEGIN LIBS
+//= require jquery2
+//= require jquery_ujs
 //= require angular
 //= require angular-route
 //= require angular-bootstrap
