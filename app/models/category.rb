@@ -8,4 +8,10 @@ class Category < ActiveRecord::Base
   before_update :generate_slug
   #>>>
 
+
+  def to_param
+    self.slug
+  end
+
+
 end

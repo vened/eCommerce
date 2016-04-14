@@ -9,8 +9,6 @@ module Staff
     end
 
 
-    # GET /categories/1
-    # GET /categories/1.json
     def show
     end
 
@@ -72,7 +70,7 @@ module Staff
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = Category.find(params[:id])
+      @category = Category.find_by_slug(params[:id])
     end
 
 
