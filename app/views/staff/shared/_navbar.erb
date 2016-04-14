@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default" ng-controller="MainController">
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+
+            <li class="dropdown" uib-dropdown>
+                <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+                    <%= t('categories') %>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="split-button">
+                    <li role="menuitem">
+                        <%= link_to t('category_create'), new_staff_category_path %>
+                    </li>
+                    <li>
+                        <%= link_to t('categories_list'), staff_categories_path %>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+
+    <button type="button" class="navbar-toggle collapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+</nav>

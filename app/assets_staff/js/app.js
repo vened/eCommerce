@@ -28,18 +28,18 @@ angular.module('appConstants', []).constant('constants', {
 /**
  * app routes
  */
-app.config(function ($routeProvider, $locationProvider, constants) {
-    $locationProvider.html5Mode(true);
-    $routeProvider
-        .when(constants.categories, {
-            controller: 'CategoriesIndexController',
-            templateUrl: 'index.html'
-        })
-        .when(constants.categories + '/:chapterId', {
-            templateUrl: 'chapter.html',
-            controller: 'ChapterController'
-        });
-});
+//app.config(function ($routeProvider, $locationProvider, constants) {
+//    $locationProvider.html5Mode(true);
+//    $routeProvider
+//        .when(constants.categories, {
+//            controller: 'CategoriesIndexController',
+//            templateUrl: 'index.html'
+//        })
+//        .when(constants.categories + '/:chapterId', {
+//            templateUrl: 'chapter.html',
+//            controller: 'ChapterController'
+//        });
+//});
 
 
 appComponents.controller('MainController', function ($scope, $routeParams) {

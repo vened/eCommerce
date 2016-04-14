@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :staff do
     root 'root#index'
 
-    # resources :categories
+    resources :categories
     # resources :dashboard, only: [:index]
   end
 

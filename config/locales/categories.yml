@@ -20,5 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
-  app_name: "eCommerce"
-
+  categories: "Категории"
+  categories_list: "Список категорий"
+  category: "Категория"
+  category_create: "Создать категорию"
