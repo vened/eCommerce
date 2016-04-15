@@ -13,19 +13,8 @@
 
 <section class="items-list">
 
-    <% @categories.each do |category| %>
-        <section class="items-list-item">
-            <div class="items-list-item-ceil">
-                <%= category.id %>
-            </div>
-            <div class="items-list-item-ceil">
-                <%= category.name %>
-            </div>
-            <div class="items-list-item-ceil">
-                <%= category.title %>
-            </div>
-        </section>
-    <% end %>
+    <%= render partial: "staff/categories/list_item", locals: { categories: @categories } %>
+
 
 </section>
 

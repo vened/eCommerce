@@ -1,0 +1,23 @@
+<% categories.each do |category| %>
+
+    <section class="items-list-item items-list-item__level-<%= category.level %>"
+             <%- if category.level > 0 %>
+             style="margin-left: <%= category.level * 3 %>0px"
+             <% end %>
+             >
+        <div class="items-list-item-ceil">
+            <%= category.id %>
+        </div>
+        <div class="items-list-item-ceil">
+            <%= category.name %>
+        </div>
+        <div class="items-list-item-ceil">
+            <%= category.slug %>
+        </div>
+    </section>
+
+    <%- unless category.leaf? %>
+        <%= render partial: "staff/categories/list_item", locals: { categories: category.children } %>
+    <%- end %>
+
+<% end %>

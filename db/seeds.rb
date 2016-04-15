@@ -8,22 +8,40 @@
 
 Admin.create(email: 'maxstbn@gmail.com', password: 'qwerty123', password_confirmation: 'qwerty123')
 
-Category.create(
-    name:       'Каталог',
-    title:      'Каталог',
-    meta_title: 'Каталог',
-    meta_key:   'Каталог',
-    pub:        true
-)
+# Category.create(
+#     name:       'Каталог',
+#     title:      'Каталог',
+#     meta_title: 'Каталог',
+#     meta_key:   'Каталог',
+#     pub:        true
+# )
 
-10000.times do
-  rand = Random.new
-  cat  = "Категория #{rand.rand(10000000)}"
+
+100.times do |i|
+  name = Faker::Commerce.department
+  p "create category no parent"
+  p name
   Category.create(
-      name:       cat,
-      title:      cat,
-      meta_title: cat,
-      meta_key:   cat,
+      name:       name,
+      title:      name,
+      meta_title: name,
       pub:        true
   )
+end
+
+1000.times do |i|
+  rand      = Random.new
+  parent_id = rand.rand(1000)
+  name      = Faker::Commerce.department
+  if parent_id > 0
+    p "create category parent_id - #{parent_id}"
+    p name
+    Category.create(
+        name:       name,
+        title:      name,
+        meta_title: name,
+        pub:        true,
+        parent_id:  parent_id
+    )
+  end
 end
