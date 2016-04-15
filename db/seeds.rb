@@ -17,21 +17,22 @@ Admin.create(email: 'maxstbn@gmail.com', password: 'qwerty123', password_confirm
 # )
 
 
-100.times do |i|
-  name = Faker::Commerce.department
-  p "create category no parent"
-  p name
-  Category.create(
-      name:       name,
-      title:      name,
-      meta_title: name,
-      pub:        true
-  )
-end
+# 100.times do |i|
+#   name = Faker::Commerce.department
+#   p "create category no parent"
+#   p name
+#   Category.create(
+#       name:       name,
+#       title:      name,
+#       meta_title: name,
+#       pub:        true
+#   )
+# end
 
-1000.times do |i|
-  rand      = Random.new
-  parent_id = rand.rand(1000)
+5.times do |i|
+  # rand      = Random.new
+  # parent_id = rand.rand(1000)
+  parent_id = 126
   name      = Faker::Commerce.department
   if parent_id > 0
     p "create category parent_id - #{parent_id}"

@@ -1,23 +1,45 @@
 <% categories.each do |category| %>
 
-    <section class="items-list-item items-list-item__level-<%= category.level %>"
-             <%- if category.level > 0 %>
-             style="margin-left: <%= category.level * 3 %>0px"
-             <% end %>
-             >
-        <div class="items-list-item-ceil">
+    <section class="items-list-item items-list-item__level-<%= category.level %>">
+        <div class="items-list-item-ceil items-list-item-ceil__id">
             <%= category.id %>
         </div>
-        <div class="items-list-item-ceil">
-            <%= category.name %>
+        <div class="items-list-item-ceil items-list-item-ceil__title">
+            <%- unless category.leaf? %>
+                <span class="btn btn-sm btn-items-list-collapse"
+                      ng-init="isCollapsed_<%= category.id %> = true"
+                      ng-click="isCollapsed_<%= category.id %> = !isCollapsed_<%= category.id %>"
+                      ng-class="{'btn-default' : !isCollapsed_<%= category.id %>, 'btn-primary' : isCollapsed_<%= category.id %>}"
+                >
+                    <i class="fa fa-plus"></i>
+                </span>
+            <%- else %>
+                <i class="fa fa-folder-o items-list-icon-folder"></i>
+            <%- end %>
+            <div>
+                <%= category.name %>
+            </div>
         </div>
-        <div class="items-list-item-ceil">
+        <div class="items-list-item-ceil items-list-item-ceil__url">
             <%= category.slug %>
+        </div>
+        <div class="items-list-item-ceil items-list-item-ceil__actions">
+            <%= link_to staff_category_path(category), class: 'btn btn-sm btn-info' do %>
+                <i class="fa fa-external-link"></i>
+            <%- end %>
+            <%= link_to edit_staff_category_path(category), class: 'btn btn-sm btn-success' do %>
+                <i class="fa fa-pencil"></i>
+            <%- end %>
+            <%= link_to staff_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' do %>
+                <i class="fa fa-trash-o"></i>
+            <%- end %>
         </div>
     </section>
 
     <%- unless category.leaf? %>
-        <%= render partial: "staff/categories/list_item", locals: { categories: category.children } %>
+        <div uib-collapse="isCollapsed_<%= category.id %>">
+            <%= render partial: "staff/categories/list_item", locals: { categories: category.children } %>
+        </div>
     <%- end %>
 
 <% end %>

@@ -12,10 +12,21 @@
 
 
 <section class="items-list">
-
+    <section class="items-list-item items-list-item__head">
+        <div class="items-list-item-ceil items-list-item-ceil__id">
+            ID
+        </div>
+        <div class="items-list-item-ceil items-list-item-ceil__title">
+            Название
+        </div>
+        <div class="items-list-item-ceil items-list-item-ceil__url">
+            URL
+        </div>
+        <div class="items-list-item-ceil items-list-item-ceil__actions">
+            URL
+        </div>
+    </section>
     <%= render partial: "staff/categories/list_item", locals: { categories: @categories } %>
-
-
 </section>
 
 <%= paginate @categories %>
