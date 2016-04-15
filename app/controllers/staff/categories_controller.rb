@@ -5,7 +5,7 @@ module Staff
     # GET /categories
     # GET /categories.json
     def index
-      @categories = Category.all
+      @categories = Category.all.page params[:page]
     end
 
 

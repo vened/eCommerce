@@ -9,9 +9,21 @@
 Admin.create(email: 'maxstbn@gmail.com', password: 'qwerty123', password_confirmation: 'qwerty123')
 
 Category.create(
-    name: 'Каталог',
-    title: 'Каталог',
+    name:       'Каталог',
+    title:      'Каталог',
     meta_title: 'Каталог',
-    meta_key: 'Каталог',
-    pub: true
+    meta_key:   'Каталог',
+    pub:        true
 )
+
+10000.times do
+  rand = Random.new
+  cat  = "Категория #{rand.rand(10000000)}"
+  Category.create(
+      name:       cat,
+      title:      cat,
+      meta_title: cat,
+      meta_key:   cat,
+      pub:        true
+  )
+end

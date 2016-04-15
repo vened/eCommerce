@@ -42,14 +42,14 @@ ActiveRecord::Schema.define(version: 20160323154835) do
     t.string   "meta_key"
     t.text     "meta_desc"
     t.text     "desc"
-    t.boolean  "pub"
+    t.boolean  "pub",            default: false, null: false
     t.integer  "parent_id"
-    t.integer  "lft",                        null: false
-    t.integer  "rgt",                        null: false
-    t.integer  "depth",          default: 0, null: false
-    t.integer  "children_count", default: 0, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "lft",                            null: false
+    t.integer  "rgt",                            null: false
+    t.integer  "depth",          default: 0,     null: false
+    t.integer  "children_count", default: 0,     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "categories", ["lft"], name: "index_categories_on_lft", using: :btree

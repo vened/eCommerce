@@ -1,37 +1,66 @@
-<h1>
-    <%= t('categories_list') %>
-</h1>
+<section class="page-title clearfix">
+    <h1 class="pull-left">
+        <%= t('categories_list') %>
+    </h1>
+    <div class="pull-right">
+        <%= link_to new_staff_category_path, class: 'btn btn-sm btn-success' do %>
+            <i class="fa fa-plus-circle"></i>
+            <%= t('category_create') %>
+        <% end %>
+    </div>
+</section>
+
+
+<section class="items-list">
+
+    <% @categories.each do |category| %>
+        <section class="items-list-item">
+            <div class="items-list-item-ceil">
+                <%= category.id %>
+            </div>
+            <div class="items-list-item-ceil">
+                <%= category.name %>
+            </div>
+            <div class="items-list-item-ceil">
+                <%= category.title %>
+            </div>
+        </section>
+    <% end %>
+
+</section>
+
+<%= paginate @categories %>
 
 <table>
-  <thead>
+    <thead>
     <tr>
-      <th>Name</th>
-      <th>Title</th>
-      <th>Desc</th>
-      <th>Meta title</th>
-      <th>Meta key</th>
-      <th>Meta desc</th>
-      <th>Slug</th>
-      <th>Pub</th>
-      <th colspan="3"></th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Desc</th>
+        <th>Meta title</th>
+        <th>Meta key</th>
+        <th>Meta desc</th>
+        <th>Slug</th>
+        <th>Pub</th>
+        <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= category.title %></td>
-        <td><%= category.desc %></td>
-        <td><%= category.meta_title %></td>
-        <td><%= category.meta_key %></td>
-        <td><%= category.meta_desc %></td>
-        <td><%= category.slug %></td>
-        <td><%= category.pub %></td>
-        <td><%= link_to 'Show', staff_category_path(category) %></td>
-        <td><%= link_to 'Edit', edit_staff_category_path(category) %></td>
-        <td><%= link_to 'Destroy', staff_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+            <td><%= category.name %></td>
+            <td><%= category.title %></td>
+            <td><%= category.desc %></td>
+            <td><%= category.meta_title %></td>
+            <td><%= category.meta_key %></td>
+            <td><%= category.meta_desc %></td>
+            <td><%= category.slug %></td>
+            <td><%= category.pub %></td>
+            <td><%= link_to 'Show', staff_category_path(category) %></td>
+            <td><%= link_to 'Edit', edit_staff_category_path(category) %></td>
+            <td><%= link_to 'Destroy', staff_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
-  </tbody>
+    </tbody>
 </table>
