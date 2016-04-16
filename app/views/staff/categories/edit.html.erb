@@ -22,15 +22,6 @@
         </div>
     </section>
 
-    <section class="panel panel-default">
-        <section class="panel-heading">
-            <h3 class="panel-title">
-                <%= t('info') %>
-            </h3>
-        </section>
-        <section class="panel-body">
-            <%= render partial: 'staff/categories/form', locals: { f: f } %>
-        </section>
-    </section>
+    <%= render partial: 'staff/categories/form', locals: { f: f } %>
 
 <% end %>

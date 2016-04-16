@@ -20,6 +20,26 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
+  activerecord:
+    models:
+      category:
+        one: Категория
+        other: Категории
+    attributes:
+      category:
+        name: Название
+        title: Заголовок H1
+        slug: URL
+        meta_title: Meta Title
+        meta_key: Meta Keywords
+        meta_desc: Meta Description
+        desc: Описание
+        pub: Опубликовано
+        parent_id: Родитель
+        depth: Глубина
+        children_count: Количество детей
+
+
   category: "Категория"
   categories:
     index: "Категории"

@@ -10,39 +10,116 @@
     </div>
 <% end %>
 
-<div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-</div>
-<div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-</div>
-<div class="field">
-    <%= f.label :desc %><br>
-    <%= f.text_area :desc %>
-</div>
-<div class="field">
-    <%= f.label :meta_title %><br>
-    <%= f.text_field :meta_title %>
-</div>
-<div class="field">
-    <%= f.label :meta_key %><br>
-    <%= f.text_field :meta_key %>
-</div>
-<div class="field">
-    <%= f.label :meta_desc %><br>
-    <%= f.text_area :meta_desc %>
-</div>
-<div class="field">
-    <%= f.label :slug %><br>
-    <%= f.text_field :slug %>
-</div>
-<div class="field">
-    <%= f.label :pub %><br>
-    <%= f.check_box :pub %>
-</div>
-<div class="actions">
-    <%= f.submit %>
-</div>
 
+<section class="panel panel-default">
+    <section class="panel-heading">
+        <h3 class="panel-title">
+            <%= t('info') %>
+        </h3>
+    </section>
+    <section class="panel-body form-horizontal">
+
+        <div class="form-group">
+            <%= f.label :name, class: 'col-sm-2 control-label' do %>
+                <%= Category.human_attribute_name("name") %>
+            <% end %>
+            <div class="col-sm-7">
+                <%= f.text_field :name, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :desc, class: 'col-sm-2 control-label' do %>
+                <%= Category.human_attribute_name("desc") %>
+            <% end %>
+            <div class="col-sm-10">
+                <%= f.text_area :desc, class: "form-control" %>
+            </div>
+        </div>
+
+    </section>
+</section>
+
+
+<section class="panel panel-default">
+    <section class="panel-heading">
+        <h3 class="panel-title">
+            <%= t('settings') %>
+        </h3>
+    </section>
+    <section class="panel-body form-horizontal">
+
+        <div class="form-group">
+            <%= f.label :slug, class: 'col-sm-2 control-label' do %>
+                <%= Category.human_attribute_name("slug") %>
+            <% end %>
+            <div class="col-sm-7">
+                <div class="input-group">
+                    <div class="input-group-addon" id="basic-addon3">
+                        <%= shop_categories_url %>/
+                    </div>
+                    <%= f.text_field :slug, class: "form-control" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="pull-right col-sm-10">
+                <div class="checkbox">
+                    <%= f.label :pub do %>
+                        <%= f.check_box :pub %>
+                        <%= Category.human_attribute_name("pub") %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</section>
+
+<section class="panel panel-default">
+    <section class="panel-heading">
+        <h3 class="panel-title">
+            <%= t('meta') %>
+        </h3>
+    </section>
+    <section class="panel-body form-horizontal">
+
+        <div class="form-group">
+            <%= f.label :title, class: 'col-sm-2 control-label' do %>
+                <%= Category.human_attribute_name("title") %>
+            <% end %>
+            <div class="col-sm-10">
+                <%= f.text_field :title, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :meta_title, class: 'col-sm-2 control-label' do %>
+                <%= Category.human_attribute_name("meta_title") %>
+            <% end %>
+            <div class="col-sm-10">
+                <%= f.text_field :meta_title, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :meta_desc, class: 'col-sm-2 control-label' do %>
+                <%= Category.human_attribute_name("meta_desc") %>
+            <% end %>
+            <div class="col-sm-10">
+                <%= f.text_field :meta_desc, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :meta_key, class: 'col-sm-2 control-label' do %>
+                <%= Category.human_attribute_name("meta_key") %>
+            <% end %>
+            <div class="col-sm-10">
+                <%= f.text_field :meta_key, class: "form-control" %>
+            </div>
+        </div>
+
+    </section>
+</section>
