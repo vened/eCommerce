@@ -3,7 +3,10 @@ module Slug
 
 
   def generate_slug
-    self.slug = self.name.parameterize
+    unless self.title.present?
+      self.title = self.name
+    end
+    self.slug = self.title.parameterize
   end
 
 end

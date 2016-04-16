@@ -53,7 +53,10 @@ ActiveRecord::Schema.define(version: 20160323154835) do
   end
 
   add_index "categories", ["lft"], name: "index_categories_on_lft", using: :btree
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
   add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
   add_index "categories", ["rgt"], name: "index_categories_on_rgt", using: :btree
+  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
+  add_index "categories", ["title"], name: "index_categories_on_title", unique: true, using: :btree
 
 end

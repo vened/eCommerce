@@ -29,20 +29,20 @@ Admin.create(email: 'maxstbn@gmail.com', password: 'qwerty123', password_confirm
 #   )
 # end
 
-5.times do |i|
-  # rand      = Random.new
-  # parent_id = rand.rand(1000)
-  parent_id = 126
-  name      = Faker::Commerce.department
-  if parent_id > 0
-    p "create category parent_id - #{parent_id}"
-    p name
-    Category.create(
-        name:       name,
-        title:      name,
-        meta_title: name,
-        pub:        true,
-        parent_id:  parent_id
-    )
-  end
-end
+# 5.times do |i|
+#   # rand      = Random.new
+#   # parent_id = rand.rand(1000)
+#   parent_id = 92
+#   name      = Faker::Commerce.department
+#   if parent_id > 0
+#     p "create category parent_id - #{parent_id}"
+#     p name
+#     Category.create(
+#         name:       name,
+#         title:      name,
+#         meta_title: name,
+#         pub:        true,
+#         parent_id:  parent_id
+#     )
+#   end
+# end
