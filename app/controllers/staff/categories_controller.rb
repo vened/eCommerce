@@ -27,8 +27,8 @@ module Staff
 
       respond_to do |format|
         if @category.save
-          format.html { redirect_to @category, notice: 'Category was successfully created.' }
-          format.json { render :show, status: :created, location: @category }
+          format.html { redirect_to staff_categories_url, notice: 'Category was successfully created.' }
+          format.json { render :show, status: :created, location: staff_categories_url }
         else
           format.html { render :new }
           format.json { render json: @category.errors, status: :unprocessable_entity }
@@ -66,7 +66,7 @@ module Staff
 
 
     def category_params
-      params.require(:category).permit(:name, :title, :desc, :meta_title, :meta_key, :meta_desc, :slug, :pub)
+      params.require(:category).permit(:name, :title, :desc, :meta_title, :meta_key, :meta_desc, :slug, :pub, :parent_id)
     end
   end
 end

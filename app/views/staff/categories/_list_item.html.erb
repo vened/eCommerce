@@ -18,22 +18,28 @@
                 <i class="fa fa-folder-o items-list-icon-folder"></i>
             <%- end %>
             <div>
-                <%= category.name %>
+                <%= link_to edit_staff_category_path(category) do %>
+                    <span uib-tooltip="<%= t('categories.edit_go') %>">
+                        <%= category.name %>
+                    </span>
+                <%- end %>
             </div>
         </div>
 
         <div class="items-list-item-ceil items-list-item-ceil__url">
-            <%= category.slug %>
+            <%= link_to shop_category_path(category), target: '_blank' do %>
+                <i class="fa fa-external-link"></i>
+                <span uib-tooltip="<%= t('categories.show_site') %>">
+                    <%= category.slug %>
+                </span>
+            <%- end %>
         </div>
         <div class="items-list-item-ceil items-list-item-ceil__actions">
-            <%= link_to shop_category_path(category), target: '_blank', class: 'btn btn-sm btn-info' do %>
-                <i class="fa fa-external-link"></i>
-            <%- end %>
-            <%= link_to edit_staff_category_path(category), class: 'btn btn-sm btn-success' do %>
-                <i class="fa fa-pencil"></i>
-            <%- end %>
-            <%= link_to staff_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' do %>
-                <i class="fa fa-trash-o"></i>
+            <%= link_to staff_category_path(category),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' },
+                        class: 'btn btn-sm btn-danger' do %>
+                <i class="fa fa-trash-o" uib-tooltip="<%= t('categories.destroy') %>"></i>
             <%- end %>
         </div>
     </section>

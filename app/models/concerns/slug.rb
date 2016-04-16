@@ -3,7 +3,7 @@ module Slug
 
 
   def generate_slug
-    self.slug = self.title.parameterize
+    self.slug = self.name.parameterize
   end
 
 end
