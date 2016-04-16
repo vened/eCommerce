@@ -21,4 +21,7 @@
 
 ru:
   app_name: "eCommerce"
+  back: "Вернуться"
+  info: "Информация"
+  save: "Сохранить"
 

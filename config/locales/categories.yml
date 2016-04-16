@@ -20,7 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
-  categories: "Категории"
-  categories_list: "Список категорий"
   category: "Категория"
-  category_create: "Создать категорию"
+  categories:
+    index: "Категории"
+    list: "Список категорий"
+    new: "Создание категории"
+    create: "Создать категорию"
+    edit: "Редактирование категории"
+    edit_success: "Категория успешно обновлена"

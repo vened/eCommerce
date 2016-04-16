@@ -24,15 +24,30 @@ a{
     background-color: $white;
     border: 1px solid $gray-light-2;
 }
+.navbar{
+    font-size: 1.1rem;
+}
 .page-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: 0 0 10px;
-    padding: 10px;
+    padding: 6px 10px;
     background-color: $white;
     border: 1px solid $gray-light-2;
+    color: $brand-primary;
 
     h1{
         margin: 0;
     }
+}
+.page-title-action{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.page-title-action__link-back{
+    margin-right: 15px;
 }
 //items-list
 .btn-items-list-collapse{
@@ -78,16 +93,17 @@ a{
 .items-list-item-ceil__title{
     display: flex;
     align-items: flex-end;
-    width: calc(70% - 175px);
+    width: calc(70% - 170px);
 }
 .items-list-item-ceil__url{
     width: 30%;
     //width: 300px;
 }
 .items-list-item-ceil__actions{
-    width: 115px;
+    width: 110px;
     padding-top: 5px;
     padding-bottom: 5px;
+    white-space: nowrap;
 
     vertical-align: top;
 }

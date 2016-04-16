@@ -40,8 +40,8 @@ module Staff
     def update
       respond_to do |format|
         if @category.update(category_params)
-          format.html { redirect_to @category, notice: 'Category was successfully updated.' }
-          format.json { render :show, status: :ok, location: @category }
+          format.html { redirect_to staff_categories_url, notice: t('categories.edit_success') }
+          format.json { render :show, status: :ok, location: staff_categories_url }
         else
           format.html { render :edit }
           format.json { render json: @category.errors, status: :unprocessable_entity }

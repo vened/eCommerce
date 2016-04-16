@@ -1,18 +1,18 @@
-<nav class="navbar navbar-default" ng-controller="MainController">
+<nav class="navbar navbar-inverse" ng-controller="MainController">
     <div class="collapse navbar-collapse">
         <div class="container">
             <ul class="nav navbar-nav">
                 <li class="dropdown" uib-dropdown>
                     <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
-                        <%= t('categories') %>
+                        <%= t('categories.index') %>
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="split-button">
                         <li role="menuitem">
-                            <%= link_to t('category_create'), new_staff_category_path %>
+                            <%= link_to t('categories.create'), new_staff_category_path %>
                         </li>
                         <li>
-                            <%= link_to t('categories_list'), staff_categories_path %>
+                            <%= link_to t('categories.list'), staff_categories_path %>
                         </li>
                     </ul>
                 </li>

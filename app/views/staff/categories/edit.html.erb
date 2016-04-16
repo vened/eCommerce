@@ -1,6 +1,36 @@
-<h1>Editing Category</h1>
+<%= form_for(@category, url: staff_category_path(@category)) do |f| %>
 
-<%= render 'form' %>
+    <section class="page-title">
+        <h1>
+            <%= t('categories.edit') %>
+            ID:
+            <%= @category.id %>.
+            <%= @category.name %>
+        </h1>
+        <div class="page-title-action">
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+            <%= link_to staff_categories_path, class: 'page-title-action__link-back' do %>
+                <i class="fa fa-long-arrow-left"></i>
+                <%= t('back') %>
+            <% end %>
+
+            <button class="btn btn-sm btn-success">
+                <i class="fa fa-check"></i>
+                <%= t('save') %>
+            </button>
+
+        </div>
+    </section>
+
+    <section class="panel panel-default">
+        <section class="panel-heading">
+            <h3 class="panel-title">
+                <%= t('info') %>
+            </h3>
+        </section>
+        <section class="panel-body">
+            <%= render partial: 'staff/categories/form', locals: { f: f } %>
+        </section>
+    </section>
+
+<% end %>

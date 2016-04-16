@@ -1,5 +1,33 @@
-<h1>New Category</h1>
+<%= form_for(@category, url: staff_categories_path) do |f| %>
 
-<%= render 'form' %>
+    <section class="page-title">
+        <h1>
+            <%= t('category_new') %>
+        </h1>
+        <div class="page-title-action">
+            <%= link_to staff_categories_path, class: 'page-title-action__link-back' do %>
+                <i class="fa fa-long-arrow-left"></i>
+                <%= t('back') %>
+            <% end %>
 
-<%= link_to 'Back', staff_categories_path %>
+
+            <%= f.submit t('save') %>
+            <%= link_to new_staff_category_path, class: 'btn btn-sm btn-success' do %>
+                <i class="fa fa-check"></i>
+                <%= t('save') %>
+            <% end %>
+        </div>
+    </section>
+
+    <section class="panel panel-default">
+        <section class="panel-heading">
+            <h3 class="panel-title">
+                <%= t('info') %>
+            </h3>
+        </section>
+        <section class="panel-body">
+            <%= render partial: 'form', locals: { f: f } %>
+        </section>
+    </section>
+
+<% end %>
