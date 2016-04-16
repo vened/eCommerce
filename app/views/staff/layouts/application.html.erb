@@ -13,13 +13,17 @@
 <%= render 'staff/shared/navbar' %>
 
 <%- if notice %>
-    <div class="alert alert-success" role="alert">
-        <%= notice %>
+    <div class="container">
+        <div class="alert alert-success" role="alert">
+            <%= notice %>
+        </div>
     </div>
 <%- end %>
 <%- if alert %>
-    <div class="alert alert-warning" role="alert">
-        <%= alert %>
+    <div class="container">
+        <div class="alert alert-warning" role="alert">
+            <%= alert %>
+        </div>
     </div>
 <%- end %>
 

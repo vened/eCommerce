@@ -51,9 +51,19 @@ a{
 }
 .items-list-item{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     background-color: $white;
     border-bottom: 1px solid $gray-light-2;
+
+    &.collapse{
+        overflow: hidden;
+        border-bottom: none;
+
+        &.in{
+            display: flex;
+            border-bottom: 1px solid $gray-light-2;
+        }
+    }
 }
 .items-list-item__head{
     font-weight: bold;
@@ -68,13 +78,14 @@ a{
 .items-list-item-ceil__title{
     display: flex;
     align-items: flex-end;
-    width: 400px;
+    width: calc(70% - 175px);
 }
 .items-list-item-ceil__url{
-    width: 300px;
+    width: 30%;
+    //width: 300px;
 }
 .items-list-item-ceil__actions{
-    width: 130px;
+    width: 115px;
     padding-top: 5px;
     padding-bottom: 5px;
 

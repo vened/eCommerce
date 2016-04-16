@@ -1,6 +1,7 @@
 <% categories.each do |category| %>
 
-    <section class="items-list-item items-list-item__level-<%= category.level %>">
+    <section class="items-list-item items-list-item__level-<%= category.level %>"
+             <%= data %>>
         <div class="items-list-item-ceil items-list-item-ceil__id">
             <%= category.id %>
         </div>
@@ -20,11 +21,12 @@
                 <%= category.name %>
             </div>
         </div>
+
         <div class="items-list-item-ceil items-list-item-ceil__url">
             <%= category.slug %>
         </div>
         <div class="items-list-item-ceil items-list-item-ceil__actions">
-            <%= link_to staff_category_path(category), class: 'btn btn-sm btn-info' do %>
+            <%= link_to shop_category_path(category), target: '_blank', class: 'btn btn-sm btn-info' do %>
                 <i class="fa fa-external-link"></i>
             <%- end %>
             <%= link_to edit_staff_category_path(category), class: 'btn btn-sm btn-success' do %>
@@ -37,9 +39,7 @@
     </section>
 
     <%- unless category.leaf? %>
-        <div uib-collapse="isCollapsed_<%= category.id %>">
-            <%= render partial: "staff/categories/list_item", locals: { categories: category.children } %>
-        </div>
+        <%= render partial: "staff/categories/list_item", locals: { categories: category.children, data: "uib-collapse=isCollapsed_#{category.id}" } %>
     <%- end %>
 
 <% end %>

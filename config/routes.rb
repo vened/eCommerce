@@ -8,4 +8,10 @@ Rails.application.routes.draw do
     # resources :dashboard, only: [:index]
   end
 
+  namespace :shop do
+    resources :categories, only: [:index, :show]
+  end
+
+  get '/shop', to: redirect('/shop/categories')
+
 end
