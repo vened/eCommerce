@@ -19,7 +19,10 @@
 
                 <%- @categories.each do |category| %>
                     <%- if category.leaf? %>
-                        <li>
+                        <li
+                        <%- if request.path == shop_category_path(category) %>class="active"
+                        <% end %>
+                        >
                             <%= link_to category.name, shop_category_path(category) %>
                         </li>
                     <%- else %>

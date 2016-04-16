@@ -33,8 +33,10 @@
             <%= f.label :parent_id, class: 'col-sm-2 control-label' do %>
                 <%= Category.human_attribute_name("parent_id") %>
             <% end %>
+            <%- options = nested_set_options(Category, @category) { |i| "#{'-' * i.level} #{i.name}" } %>
+            <%- options = options.unshift([t('no_select'), nil]) %>
             <div class="col-sm-10">
-                <%= f.select :parent_id, nested_set_options(Category, @category) { |i| "#{'-' * i.level} #{i.name}" } %>
+                <%= f.select :parent_id, options %>
             </div>
         </div>
 
