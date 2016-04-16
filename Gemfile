@@ -8,6 +8,8 @@ gem 'pg', '~> 0.15'
 gem 'devise', '3.5.6'
 gem 'awesome_nested_set', '3.0.3'
 gem 'kaminari'
+gem 'cells', '4.0.4'
+gem 'cells-erb', '0.0.7'
 
 
 ###### localisation ######
