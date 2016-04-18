@@ -6,7 +6,8 @@ var app = angular.module('eCommerceApp', [
     'appComponents',
     'appConstants',
     'templates',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ui.codemirror'
 ]);
 angular.module('templates', []);
 var appComponents = angular.module('appComponents', []);

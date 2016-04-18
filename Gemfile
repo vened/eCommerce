@@ -34,6 +34,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular', '1.5.3'
   gem 'rails-assets-angular-route', '1.5.3'
   gem 'rails-assets-angular-bootstrap', '1.3.1'
+  gem 'rails-assets-angular-ui-codemirror', '0.3.0'
 end
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
