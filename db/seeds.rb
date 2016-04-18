@@ -17,32 +17,51 @@ Admin.create(email: 'maxstbn@gmail.com', password: 'qwerty123', password_confirm
 # )
 
 
-# 100.times do |i|
-#   name = Faker::Commerce.department
-#   p "create category no parent"
-#   p name
-#   Category.create(
-#       name:       name,
-#       title:      name,
-#       meta_title: name,
-#       pub:        true
-#   )
-# end
+6.times do |i|
+  name = Faker::Commerce.department(2, true)
+  p "create category no parent"
+  p name
+  Category.create(
+      name:       name,
+      title:      name,
+      meta_title: name,
+      pub:        true
+  )
+end
 
-# 5.times do |i|
-#   # rand      = Random.new
-#   # parent_id = rand.rand(1000)
-#   parent_id = 92
-#   name      = Faker::Commerce.department
-#   if parent_id > 0
-#     p "create category parent_id - #{parent_id}"
-#     p name
-#     Category.create(
-#         name:       name,
-#         title:      name,
-#         meta_title: name,
-#         pub:        true,
-#         parent_id:  parent_id
-#     )
-#   end
-# end
+5.times do |i|
+  # rand      = Random.new
+  # parent_id = rand.rand(1000)
+  parent_id = 2
+  name      = Faker::Commerce.department(2, true)
+  if parent_id > 0
+    p "create category parent_id - #{parent_id}"
+    p name
+    Category.create(
+        name:       name,
+        title:      name,
+        meta_title: name,
+        pub:        true,
+        parent_id:  parent_id
+    )
+  end
+end
+
+5.times do |i|
+  # rand      = Random.new
+  # parent_id = rand.rand(1000)
+  parent_id = 5
+  name      = Faker::Commerce.department(2, true)
+  if parent_id > 0
+    p "create category parent_id - #{parent_id}"
+    p name
+    Category.create(
+        name:       name,
+        title:      name,
+        meta_title: name,
+        pub:        true,
+        parent_id:  parent_id
+    )
+  end
+end
+
