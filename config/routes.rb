@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     root 'root#index'
 
     resources :categories
+    resources :configs, only: [:index, :new, :update, :create]
     # resources :dashboard, only: [:index]
   end
 

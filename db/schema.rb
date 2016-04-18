@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323154835) do
+ActiveRecord::Schema.define(version: 20160418095131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,5 +57,14 @@ ActiveRecord::Schema.define(version: 20160323154835) do
   add_index "categories", ["rgt"], name: "index_categories_on_rgt", using: :btree
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
   add_index "categories", ["title"], name: "index_categories_on_title", unique: true, using: :btree
+
+  create_table "configs", force: :cascade do |t|
+    t.string   "sitename"
+    t.boolean  "google_analytics"
+    t.string   "google_analytics_counter_id"
+    t.text     "scripts"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
 end

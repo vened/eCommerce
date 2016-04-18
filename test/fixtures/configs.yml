@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sitename: MyString
+  google_analytics: false
+  google_analytics_counter_id: MyString
+  scripts: MyText
+
+two:
+  sitename: MyString
+  google_analytics: false
+  google_analytics_counter_id: MyString
+  scripts: MyText
