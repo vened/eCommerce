@@ -28,7 +28,7 @@
             <div class="pull-right col-sm-10">
                 <%= f.check_box :google_analytics,
                                 data: {
-                                    "ng-init":   "google_analytics = #{@config.google_analytics}",
+                                    "ng-init":    "google_analytics = #{@config.google_analytics}",
                                     "ng-model":   "google_analytics",
                                     "ng-checked": @config.google_analytics
                                 }
@@ -54,9 +54,18 @@
             <%= f.label :scripts, class: 'col-sm-2 control-label' do %>
                 <%= Category.human_attribute_name("scripts") %>
             <% end %>
-            <div class="col-sm-4">
-                <%= f.text_field :scripts, class: "form-control" %>
-                <textarea ui-codemirror></textarea>
+            <div class="col-sm-10">
+                <textarea
+                id="config_scripts"
+                name="config[scripts]"
+                ui-codemirror="{
+                            lineNumbers: true,
+                            theme:'railscasts',
+                            indentWithTabs: true,
+                            lineWrapping : true,
+                            mode: 'Javascript'
+                          }"
+                ></textarea>
             </div>
         </div>
 

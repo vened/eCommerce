@@ -17,6 +17,7 @@
 //= require angular
 //= require angular-route
 //= require angular-bootstrap
+//= require codemirror
 //= require angular-ui-codemirror
 // END LIBS
 
