@@ -6,7 +6,7 @@
     <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= concept("scripts/cell").(:google_analytics) %>
 <%= concept("navbar/cell") %>
 
 <div class="container">
@@ -15,6 +15,6 @@
 
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
+<%= concept("scripts/cell").(:scripts) %>
 </body>
 </html>

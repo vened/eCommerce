@@ -17,7 +17,7 @@ Admin.create(email: 'maxstbn@gmail.com', password: 'qwerty123', password_confirm
 # )
 
 6.times do |i|
-  name = Faker::Commerce.department(2, true)
+  name = Faker::Commerce.department(1, true)
   p "create category no parent"
   p name
   Category.create(
