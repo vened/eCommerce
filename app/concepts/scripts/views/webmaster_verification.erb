@@ -1,0 +1,6 @@
+<%- if @config.yandex_verification.present? %>
+    <meta name='yandex-verification' content='<%= @config.yandex_verification %>'/>
+<% end %>
+<%- if @config.google_site_verification.present? %>
+    <meta name="google-site-verification" content="<%= @config.google_site_verification %>"/>
+<% end %>

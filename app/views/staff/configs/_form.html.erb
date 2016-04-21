@@ -1,28 +1,10 @@
-<% if @config.errors.any? %>
-    <div id="error_explanation"
-         class="alert alert-danger">
-        <h2><%= pluralize(@config.errors.count, "error") %> prohibited this config from being saved:</h2>
-
-        <ul>
-            <% @config.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-        </ul>
-    </div>
-<% end %>
-
-
 <section class="panel panel-default">
     <section class="panel-body form-horizontal">
 
-        <div class="form-group">
-            <%= f.label :sitename, class: 'col-sm-2 control-label' do %>
-                <%= Category.human_attribute_name("sitename") %>
-            <% end %>
-            <div class="col-sm-4">
-                <%= f.text_field :sitename, class: "form-control" %>
-            </div>
-        </div>
+        <%= f.input :sitename, wrapper: :horizontal_form %>
+
+        <%= f.input :yandex_verification, wrapper: :horizontal_form %>
+        <%= f.input :google_site_verification, wrapper: :horizontal_form %>
 
         <div class="form-group">
             <div class="pull-right col-sm-10">
@@ -38,7 +20,6 @@
                 <% end %>
             </div>
         </div>
-
 
         <div class="form-group"
              ng-if="google_analytics">

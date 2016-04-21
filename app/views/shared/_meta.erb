@@ -1,13 +1,17 @@
 <%- content_for :meta do %>
 
-    <%- image = root_url.gsub(/\/\Z/, '') + image%>
+    <%- if image.present? %>
+        <%- image = root_url.gsub(/\/\Z/, '') + image %>
+    <% end %>
 
     <%- unless canonical.blank? %>
         <link rel="canonical" href="<%= canonical %>"/>
     <% end %>
+
     <%- if noindex.present? %>
         <meta name="robots" content="noindex"/>
     <% end %>
+
     <title><%= meta_title %></title>
     <meta name="keywords" content="<%= meta_key %>"/>
     <meta name="description" content="<%= meta_desc %>"/>

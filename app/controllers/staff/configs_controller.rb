@@ -49,7 +49,8 @@ module Staff
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def config_params
-      params.require(:config).permit(:sitename, :google_analytics, :google_analytics_counter_id, :scripts)
+      params.require(:config).permit(:sitename, :google_analytics, :google_analytics_counter_id, :scripts,
+                                     :yandex_verification, :google_site_verification)
     end
   end
 end

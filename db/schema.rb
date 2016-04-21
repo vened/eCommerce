@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(version: 20160421133207) do
     t.string   "sitename"
     t.boolean  "google_analytics"
     t.string   "google_analytics_counter_id"
+    t.string   "yandex_verification"
+    t.string   "google_site_verification"
     t.text     "scripts"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false

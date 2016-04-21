@@ -31,6 +31,8 @@ ru:
         google_analytics: Включить гугл аналитику?
         google_analytics_counter_id: ID гугл аналитики
         scripts: Допольнительные скрипты
+        yandex_verification: yandex-verification
+        google_site_verification: google-site-verification
 
 
   configs:

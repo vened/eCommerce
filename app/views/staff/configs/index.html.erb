@@ -1,4 +1,5 @@
-<%= form_for(@config, url: staff_config_path(@config)) do |f| %>
+<%= simple_form_for(@config, url: staff_config_path(@config)) do |f| %>
+
     <section class="page-title">
         <h1>
             <%= t('configs.index') %>
@@ -15,4 +16,5 @@
 
 
     <%= render partial: 'form', locals: { f: f } %>
+
 <% end %>

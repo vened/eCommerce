@@ -11,6 +11,7 @@
     <meta content="True" name="HandheldFriendly"/>
     <meta content="default" name="apple-mobile-web-app-status-bar-style"/>
     <%= yield :meta %>
+    <%= concept("scripts/cell").(:webmaster_verification) %>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 </head>

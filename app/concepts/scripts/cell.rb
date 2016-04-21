@@ -10,4 +10,9 @@ class Scripts::Cell < Cell::Concept
     render
   end
 
+  def webmaster_verification
+    @config = Config.first
+    render
+  end
+
 end
