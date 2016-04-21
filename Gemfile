@@ -13,7 +13,7 @@ gem 'cells-erb', '0.0.7'
 gem 'carrierwave'
 gem 'carrierwave-imageoptimizer'
 gem 'mini_magick'
-# gem 'simple_form'
+gem 'simple_form'
 
 ###### localisation ######
 gem 'rails-i18n'

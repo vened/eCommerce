@@ -1,4 +1,4 @@
-<%= form_for(@category, url: staff_category_path(@category)) do |f| %>
+<%= simple_form_for(@category, url: staff_category_path(@category)) do |f| %>
 
     <section class="page-title">
         <h1>
@@ -14,10 +14,12 @@
                 <%= t('back') %>
             <% end %>
 
-            <button class="btn btn-sm btn-success">
+            <%= f.button :submit %>
+            <!--<button class="btn btn-sm btn-success">
                 <i class="fa fa-check"></i>
-                <%= t('save') %>
+                <%#= t('save') %>
             </button>
+            -->
 
         </div>
     </section>
@@ -25,3 +27,10 @@
     <%= render partial: 'staff/categories/form', locals: { f: f } %>
 
 <% end %>
+
+<%#= form_for(@category, url: staff_category_path(@category)) do |f| %>
+
+
+    <%#= render partial: 'staff/categories/form', locals: { f: f } %>
+
+<%# end %>

@@ -1,17 +1,3 @@
-<% if @category.errors.any? %>
-    <div id="error_explanation"
-         class="alert alert-danger">
-        <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
-        <ul>
-            <% @category.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-        </ul>
-    </div>
-<% end %>
-
-
 <section class="panel panel-default">
     <section class="panel-heading">
         <h3 class="panel-title">
@@ -19,38 +5,10 @@
         </h3>
     </section>
     <section class="panel-body form-horizontal">
-
-        <div class="form-group">
-            <%= f.label :name, class: 'col-sm-2 control-label' do %>
-                <%= Category.human_attribute_name("name") %>
-            <% end %>
-            <div class="col-sm-4">
-                <%= f.text_field :name, class: "form-control" %>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <%= f.label :parent_id, class: 'col-sm-2 control-label' do %>
-                <%= Category.human_attribute_name("parent_id") %>
-            <% end %>
-            <%- options = nested_set_options(Category, @category) { |i| "#{'-' * i.level} #{i.name}" } %>
-            <%- options = options.unshift([t('no_select'), nil]) %>
-            <div class="col-sm-10">
-                <%= f.select :parent_id, options %>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <%= f.label :desc, class: 'col-sm-2 control-label' do %>
-                <%= Category.human_attribute_name("desc") %>
-            <% end %>
-            <div class="col-sm-10">
-                <%#= f.text_area :desc, class: "form-control" %>
-                <%#= form.input :content, :as => :ckeditor, :input_html => { :ckeditor => { :toolbar => 'Full' } } %>
-                <%= f.cktext_area :desc, :ckeditor => { :language => 'ru' } %>
-            </div>
-        </div>
-
+        <%= f.input :name, wrapper: :horizontal_form %>
+        <%- options = nested_set_options(Category, @category) { |i| "#{'-' * i.level} #{i.name}" } %>
+        <%= f.input :parent_id, wrapper: :horizontal_form, collection: options %>
+        <%= f.input :desc, wrapper: :horizontal_form, :as => :ckeditor, :input_html => { :ckeditor => { :toolbar => 'Full' } } %>
     </section>
 </section>
 
@@ -76,18 +34,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="pull-right col-sm-10">
-                <div class="checkbox">
-                    <%= f.label :pub do %>
-                        <%= f.check_box :pub %>
-                        <%= Category.human_attribute_name("pub") %>
-                    <% end %>
-                </div>
-            </div>
-        </div>
-
+        <%= f.input :pub, wrapper: :horizontal_form %>
     </section>
 </section>
 
@@ -98,42 +45,9 @@
         </h3>
     </section>
     <section class="panel-body form-horizontal">
-
-        <div class="form-group">
-            <%= f.label :title, class: 'col-sm-2 control-label' do %>
-                <%= Category.human_attribute_name("title") %>
-            <% end %>
-            <div class="col-sm-10">
-                <%= f.text_field :title, class: "form-control" %>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <%= f.label :meta_title, class: 'col-sm-2 control-label' do %>
-                <%= Category.human_attribute_name("meta_title") %>
-            <% end %>
-            <div class="col-sm-10">
-                <%= f.text_field :meta_title, class: "form-control" %>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <%= f.label :meta_desc, class: 'col-sm-2 control-label' do %>
-                <%= Category.human_attribute_name("meta_desc") %>
-            <% end %>
-            <div class="col-sm-10">
-                <%= f.text_field :meta_desc, class: "form-control" %>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <%= f.label :meta_key, class: 'col-sm-2 control-label' do %>
-                <%= Category.human_attribute_name("meta_key") %>
-            <% end %>
-            <div class="col-sm-10">
-                <%= f.text_field :meta_key, class: "form-control" %>
-            </div>
-        </div>
-
+        <%= f.input :title, wrapper: :horizontal_form %>
+        <%= f.input :meta_title, wrapper: :horizontal_form %>
+        <%= f.input :meta_desc, wrapper: :horizontal_form %>
+        <%= f.input :meta_key, wrapper: :horizontal_form %>
     </section>
 </section>
