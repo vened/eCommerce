@@ -1,0 +1,30 @@
+<section class="page-title">
+    <h1>
+        <%= t('products.list') %>
+    </h1>
+    <div>
+        <%= link_to new_staff_product_path, class: 'btn btn-sm btn-success' do %>
+            <i class="fa fa-plus-circle"></i>
+            <%= t('products.create') %>
+        <% end %>
+    </div>
+</section>
+
+
+<section class="items-list">
+    <section class="items-list-item items-list-item__head">
+        <div class="items-list-item-ceil items-list-item-ceil__id">
+            ID
+        </div>
+        <div class="items-list-item-ceil items-list-item-ceil__title">
+            Название
+        </div>
+        <div class="items-list-item-ceil items-list-item-ceil__url">
+            URL
+        </div>
+        <div class="items-list-item-ceil items-list-item-ceil__actions"></div>
+    </section>
+    <%= render partial: "staff/products/list_item", locals: { staff_products: @staff_products, data: nil } %>
+</section>
+
+<%= paginate @staff_products %>

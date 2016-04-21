@@ -18,7 +18,7 @@ class CategoriesControllerTest < ActionController::TestCase
 
   test "should create category" do
     assert_difference('Category.count') do
-      post :create, category: { desc: @category.desc, meta_desc: @category.meta_desc, meta_key: @category.meta_key, meta_title: @category.meta_title, name: @category.name, pub: @category.pub, slug: @category.slug, title: @category.title }
+      post :create, category: { desc: @category.desc, meta_desc: @category.meta_desc, meta_key: @category.meta_key, meta_title: @category.meta_title, name: @category.name, active: @category.active, slug: @category.slug, title: @category.title }
     end
 
     assert_redirected_to category_path(assigns(:category))
@@ -35,7 +35,7 @@ class CategoriesControllerTest < ActionController::TestCase
   end
 
   test "should update category" do
-    patch :update, id: @category, category: { desc: @category.desc, meta_desc: @category.meta_desc, meta_key: @category.meta_key, meta_title: @category.meta_title, name: @category.name, pub: @category.pub, slug: @category.slug, title: @category.title }
+    patch :update, id: @category, category: { desc: @category.desc, meta_desc: @category.meta_desc, meta_key: @category.meta_key, meta_title: @category.meta_title, name: @category.name, active: @category.active, slug: @category.slug, title: @category.title }
     assert_redirected_to category_path(assigns(:category))
   end
 

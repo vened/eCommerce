@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421133207) do
+ActiveRecord::Schema.define(version: 20160421141503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,12 +38,12 @@ ActiveRecord::Schema.define(version: 20160421133207) do
     t.string   "name"
     t.string   "title"
     t.string   "meta_title"
-    t.string   "slug"
     t.string   "meta_key"
-    t.string   "photo"
     t.text     "meta_desc"
     t.text     "desc"
-    t.boolean  "pub",            default: false, null: false
+    t.string   "slug"
+    t.string   "photo"
+    t.boolean  "active",         default: false, null: false
     t.integer  "parent_id"
     t.integer  "lft",                            null: false
     t.integer  "rgt",                            null: false
@@ -84,6 +84,22 @@ ActiveRecord::Schema.define(version: 20160421133207) do
     t.text     "scripts"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.boolean  "hit"
+    t.boolean  "new"
+    t.boolean  "action"
+    t.boolean  "active"
+    t.text     "mini_desc"
+    t.text     "desc"
+    t.string   "meta_title"
+    t.string   "meta_key"
+    t.string   "meta_desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

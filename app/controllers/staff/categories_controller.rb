@@ -66,7 +66,7 @@ module Staff
 
 
     def category_params
-      params.require(:category).permit(:name, :title, :photo, :desc, :meta_title, :meta_key, :meta_desc, :slug, :pub, :parent_id)
+      params.require(:category).permit(:name, :title, :photo, :desc, :meta_title, :meta_key, :meta_desc, :slug, :active, :parent_id)
     end
   end
 end

@@ -1,0 +1,35 @@
+<% staff_products.each do |staff_product| %>
+
+    <section class="items-list-item">
+        <div class="items-list-item-ceil items-list-item-ceil__id">
+            <%= staff_product.id %>
+        </div>
+        <div class="items-list-item-ceil items-list-item-ceil__title">
+            <div>
+                <%= link_to edit_staff_product_path(staff_product) do %>
+                    <span uib-tooltip="<%= t('products.edit_go') %>">
+                        <%= staff_product.name %>
+                    </span>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="items-list-item-ceil items-list-item-ceil__url">
+            <%= link_to shop_product_path(staff_product), target: '_blank' do %>
+                <i class="fa fa-external-link"></i>
+                <span uib-tooltip="<%= t('categories.show_site') %>">
+                    <%= staff_product.slug %>
+                </span>
+            <%- end %>
+        </div>
+        <div class="items-list-item-ceil items-list-item-ceil__actions">
+            <%= link_to staff_product_path(staff_product),
+                        method: :delete,
+                        data:   { confirm: 'Are you sure?' },
+                        class:  'btn btn-sm btn-danger' do %>
+                <i class="fa fa-trash-o" uib-tooltip="<%= t('products.destroy') %>"></i>
+            <%- end %>
+        </div>
+    </section>
+
+<% end %>

@@ -4,13 +4,13 @@ class CreateCategories < ActiveRecord::Migration
       t.string :name
       t.string :title
       t.string :meta_title
-      t.string :slug
       t.string :meta_key
-      t.string :photo
-
       t.text :meta_desc
       t.text :desc
-      t.boolean :pub, :null => false, :default => false
+      t.string :slug
+      t.string :photo
+
+      t.boolean :active, :null => false, :default => false
 
       t.integer :parent_id, :null => true, :index => true
       t.integer :lft, :null => false, :index => true

@@ -23,8 +23,10 @@ ru:
   app_name: "eCommerce"
   back: "Вернуться"
   info: "Информация"
+  base_info: Основные данные
   save: "Сохранить"
   settings: "Настройки"
   meta: "Мета-данные"
   no_select: "Не выбрано"
+  catalog: Каталог товаров
 

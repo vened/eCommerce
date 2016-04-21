@@ -80,7 +80,7 @@ module Staff
 
         # Never trust parameters from the scary internet, only allow the white list through.
         def category_params
-          params.require(:category).permit(:name, :title, :desc, :meta_title, :meta_key, :meta_desc, :slug, :pub)
+          params.require(:category).permit(:name, :title, :desc, :meta_title, :meta_key, :meta_desc, :slug, :active)
         end
       end
     end

@@ -2,20 +2,26 @@
 
 one:
   name: MyString
-  title: MyString
+  slug: MyString
+  hit: false
+  new: false
+  action: false
+  active: false
+  mini_desc: MyText
   desc: MyText
   meta_title: MyString
   meta_key: MyString
-  meta_desc: MyText
-  slug: MyString
-  active: false
+  meta_desc: MyString
 
 two:
   name: MyString
-  title: MyString
+  slug: MyString
+  hit: false
+  new: false
+  action: false
+  active: false
+  mini_desc: MyText
   desc: MyText
   meta_title: MyString
   meta_key: MyString
-  meta_desc: MyText
-  slug: MyString
-  active: false
+  meta_desc: MyString

@@ -13,7 +13,7 @@ Admin.create(email: 'maxstbn@gmail.com', password: 'qwerty123', password_confirm
 #     title:      'Каталог',
 #     meta_title: 'Каталог',
 #     meta_key:   'Каталог',
-#     pub:        true
+#     active:        true
 # )
 
 6.times do |i|
@@ -24,7 +24,7 @@ Admin.create(email: 'maxstbn@gmail.com', password: 'qwerty123', password_confirm
       name:       name,
       title:      name,
       meta_title: name,
-      pub:        true
+      active:        true
   )
 end
 
@@ -40,7 +40,7 @@ end
         name:       name,
         title:      name,
         meta_title: name,
-        pub:        true,
+        active:        true,
         parent_id:  parent_id
     )
   end
@@ -58,7 +58,7 @@ end
         name:       name,
         title:      name,
         meta_title: name,
-        pub:        true,
+        active:        true,
         parent_id:  parent_id
     )
   end

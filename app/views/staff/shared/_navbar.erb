@@ -4,15 +4,15 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown" uib-dropdown>
                     <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
-                        <%= t('categories.index') %>
+                        <%= t('catalog') %>
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="split-button">
-                        <li role="menuitem">
-                            <%= link_to t('categories.create'), new_staff_category_path %>
-                        </li>
                         <li>
                             <%= link_to t('categories.list'), staff_categories_path %>
+                        </li>
+                        <li>
+                            <%= link_to t('products.list'), staff_products_path %>
                         </li>
                     </ul>
                 </li>

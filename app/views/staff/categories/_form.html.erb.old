@@ -80,9 +80,9 @@
         <div class="form-group">
             <div class="pull-right col-sm-10">
                 <div class="checkbox">
-                    <%= f.label :pub do %>
-                        <%= f.check_box :pub %>
-                        <%= Category.human_attribute_name("pub") %>
+                    <%= f.label :active do %>
+                        <%= f.check_box :active %>
+                        <%= Category.human_attribute_name("active") %>
                     <% end %>
                 </div>
             </div>

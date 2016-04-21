@@ -1,0 +1,22 @@
+<%= f.error_notification %>
+
+<section class="panel panel-default">
+    <section class="panel-heading">
+        <h3 class="panel-title">
+            <%= t('base_info') %>
+        </h3>
+    </section>
+    <section class="panel-body form-horizontal">
+        <%= f.input :name, wrapper: :horizontal_form %>
+        <%= f.input :slug, wrapper: :horizontal_form %>
+        <%= f.input :hit, wrapper: :horizontal_form %>
+        <%= f.input :new, wrapper: :horizontal_form %>
+        <%= f.input :action, wrapper: :horizontal_form %>
+        <%= f.input :active, wrapper: :horizontal_form %>
+        <%= f.input :mini_desc, wrapper: :horizontal_form, :as => :ckeditor, :input_html => { :ckeditor => { :toolbar => 'Full' } } %>
+        <%= f.input :desc, wrapper: :horizontal_form, :as => :ckeditor, :input_html => { :ckeditor => { :toolbar => 'Full' } } %>
+        <%= f.input :meta_title, wrapper: :horizontal_form %>
+        <%= f.input :meta_key, wrapper: :horizontal_form %>
+        <%= f.input :meta_desc, wrapper: :horizontal_form %>
+    </section>
+</section>

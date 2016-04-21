@@ -35,7 +35,7 @@ ru:
         meta_key: Meta Keywords
         meta_desc: Meta Description
         desc: Описание
-        pub: Опубликовано
+        active: Опубликовано
         parent_id: Родитель
         depth: Глубина
         children_count: Количество детей
@@ -44,7 +44,7 @@ ru:
   category: "Категория"
   categories:
     index: "Категории"
-    list: "Список категорий"
+    list: Категории товаров
     new: "Создание категории"
     create: "Создать категорию"
     edit_go: Редактировать категорию
