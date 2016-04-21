@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html ng-app="eCommerceApp">
+<html lang="ru"
+      prefix="og: http://ogp.me/ns#"
+      ng-app="eCommerceApp"
+>
 <head>
-    <title>ECommerce</title>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="320" name="MobileOptimized"/>
+    <meta content="True" name="HandheldFriendly"/>
+    <meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+    <%= yield :meta %>
     <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 </head>
 <body>
 <%= concept("scripts/cell").(:google_analytics) %>

@@ -1,41 +1,49 @@
+<%= render partial: "shared/meta",
+           locals:  { meta_title: @category.meta_title,
+                      meta_key:   @category.meta_key,
+                      meta_desc:  @category.meta_desc,
+                      url:        shop_category_path(@category),
+                      canonical:  false,
+                      noindex:    false } %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @category.name %>
+    <strong>Name:</strong>
+    <%= @category.name %>
 </p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @category.title %>
+    <strong>Title:</strong>
+    <%= @category.title %>
 </p>
 
 <p>
-  <strong>Desc:</strong>
-  <%= @category.desc %>
+    <strong>Desc:</strong>
+    <%= @category.desc %>
 </p>
 
 <p>
-  <strong>Meta title:</strong>
-  <%= @category.meta_title %>
+    <strong>Meta title:</strong>
+    <%= @category.meta_title %>
 </p>
 
 <p>
-  <strong>Meta key:</strong>
-  <%= @category.meta_key %>
+    <strong>Meta key:</strong>
+    <%= @category.meta_key %>
 </p>
 
 <p>
-  <strong>Meta desc:</strong>
-  <%= @category.meta_desc %>
+    <strong>Meta desc:</strong>
+    <%= @category.meta_desc %>
 </p>
 
 <p>
-  <strong>Slug:</strong>
-  <%= @category.slug %>
+    <strong>Slug:</strong>
+    <%= @category.slug %>
 </p>
 
 <p>
-  <strong>Pub:</strong>
-  <%= @category.pub %>
+    <strong>Pub:</strong>
+    <%= @category.pub %>
 </p>
