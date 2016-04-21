@@ -10,7 +10,9 @@ gem 'awesome_nested_set', '3.0.3'
 gem 'kaminari'
 gem 'cells', '4.0.4'
 gem 'cells-erb', '0.0.7'
-
+gem 'carrierwave'
+gem 'carrierwave-imageoptimizer'
+gem 'mini_magick'
 
 ###### localisation ######
 gem 'rails-i18n'
@@ -35,6 +37,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular-route', '1.5.3'
   gem 'rails-assets-angular-bootstrap', '1.3.1'
   gem 'rails-assets-angular-ui-codemirror', '0.3.0'
+  gem 'rails-assets-angular-ui-tinymce'
 end
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
