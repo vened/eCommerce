@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'pages#index'
+
   devise_for :admins
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   namespace :site, path: '/' do
-    root 'pages#index'
+
   end
 
 end

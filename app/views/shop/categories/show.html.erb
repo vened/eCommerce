@@ -2,7 +2,8 @@
            locals:  { meta_title: @category.meta_title,
                       meta_key:   @category.meta_key,
                       meta_desc:  @category.meta_desc,
-                      url:        shop_category_path(@category),
+                      url:        shop_category_url(@category),
+                      image:      @category.photo.url,
                       canonical:  false,
                       noindex:    false } %>
 

@@ -1,4 +1,7 @@
 <%- content_for :meta do %>
+
+    <%- image = root_url.gsub(/\/\Z/, '') + image%>
+
     <%- unless canonical.blank? %>
         <link rel="canonical" href="<%= canonical %>"/>
     <% end %>
@@ -10,6 +13,6 @@
     <meta name="description" content="<%= meta_desc %>"/>
     <meta property="og:url" content="<%= url %>"/>
     <meta property="og:title" content="<%= meta_title %>"/>
-    <meta property="og:image" content=""/>
+    <meta property="og:image" content="<%= image %>"/>
     <meta property="og:description" content="<%= meta_desc %>"/>
 <% end %>
