@@ -1,6 +1,8 @@
 class Product < ActiveRecord::Base
   include Slug
 
+  belongs_to :category
+
   validates :name, presence: true
 
   #<<<

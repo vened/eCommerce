@@ -72,13 +72,14 @@ module Staff
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_staff_product
-      @staff_product = Product.find(params[:id])
+      @staff_product = Product.find_by_slug(params[:id])
     end
 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def staff_product_params
-      params.require(:product).permit(:name, :slug, :hit, :new, :action, :active, :mini_desc, :desc, :meta_title, :meta_key, :meta_desc)
+      params.require(:product).permit(:name, :slug, :hit, :new, :action, :active, :mini_desc, :desc, :meta_title, :meta_key, :meta_desc,
+                                      :category_id, :sku)
     end
   end
 end

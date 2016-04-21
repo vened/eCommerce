@@ -13,16 +13,19 @@
 
 <section class="items-list">
     <section class="items-list-item items-list-item__head">
-        <div class="items-list-item-ceil items-list-item-ceil__id">
+        <div class="items-list-item-ceil product-list-ceil__id">
             ID
         </div>
-        <div class="items-list-item-ceil items-list-item-ceil__title">
-            Название
+        <div class="items-list-item-ceil product-list-ceil__title">
+            <%= t('activerecord.models.product.one') %>
         </div>
-        <div class="items-list-item-ceil items-list-item-ceil__url">
-            URL
+        <div class="items-list-item-ceil product-list-ceil__category">
+            <%= t('activerecord.models.category.one') %>
         </div>
-        <div class="items-list-item-ceil items-list-item-ceil__actions"></div>
+        <div class="items-list-item-ceil product-list-ceil__sku">
+            <%= t('activerecord.attributes.product.sku') %>
+        </div>
+        <div class="items-list-item-ceil product-list-ceil__actions"></div>
     </section>
     <%= render partial: "staff/products/list_item", locals: { staff_products: @staff_products, data: nil } %>
 </section>

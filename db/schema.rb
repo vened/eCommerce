@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20160421141503) do
   end
 
   create_table "products", force: :cascade do |t|
+    t.string   "sku"
     t.string   "name"
     t.string   "slug"
     t.boolean  "hit"
@@ -98,8 +99,11 @@ ActiveRecord::Schema.define(version: 20160421141503) do
     t.string   "meta_title"
     t.string   "meta_key"
     t.string   "meta_desc"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
 
 end

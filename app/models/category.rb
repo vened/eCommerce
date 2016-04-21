@@ -3,6 +3,9 @@ class Category < ActiveRecord::Base
   acts_as_nested_set
   mount_uploader :photo, PhotoUploader
 
+  has_many :products
+
+
   validates :name, :title, presence: true
   validates :title, :slug, uniqueness: true
 
