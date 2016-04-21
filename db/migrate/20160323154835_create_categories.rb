@@ -6,6 +6,7 @@ class CreateCategories < ActiveRecord::Migration
       t.string :meta_title
       t.string :slug
       t.string :meta_key
+      t.string :photo
 
       t.text :meta_desc
       t.text :desc

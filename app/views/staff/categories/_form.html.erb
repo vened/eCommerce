@@ -6,6 +6,7 @@
     </section>
     <section class="panel-body form-horizontal">
         <%= f.input :name, wrapper: :horizontal_form %>
+        <%= f.input :photo, wrapper: :horizontal_form, :as => :image_preview, :input_html => { :preview_version => :thumb } %>
         <%- options = nested_set_options(Category, @category) { |i| "#{'-' * i.level} #{i.name}" } %>
         <%= f.input :parent_id, wrapper: :horizontal_form, collection: options %>
         <%= f.input :desc, wrapper: :horizontal_form, :as => :ckeditor, :input_html => { :ckeditor => { :toolbar => 'Full' } } %>

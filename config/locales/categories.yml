@@ -29,6 +29,7 @@ ru:
       category:
         name: Название
         title: Заголовок H1
+        photo: Фотография
         slug: URL
         meta_title: Meta Title
         meta_key: Meta Keywords

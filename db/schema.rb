@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160421133207) do
     t.string   "meta_title"
     t.string   "slug"
     t.string   "meta_key"
+    t.string   "photo"
     t.text     "meta_desc"
     t.text     "desc"
     t.boolean  "pub",            default: false, null: false
