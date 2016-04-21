@@ -19,6 +19,7 @@
 //= require angular-bootstrap
 //= require codemirror
 //= require angular-ui-codemirror
+//= require ckeditor/init
 // END LIBS
 
 //= require ./app

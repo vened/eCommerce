@@ -13,6 +13,7 @@ gem 'cells-erb', '0.0.7'
 gem 'carrierwave'
 gem 'carrierwave-imageoptimizer'
 gem 'mini_magick'
+# gem 'simple_form'
 
 ###### localisation ######
 gem 'rails-i18n'
@@ -28,16 +29,16 @@ gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
 
 gem 'js-routes', '1.2.5'
-# gem 'angularjs-rails', '1.5.0'
 gem 'angular-rails-templates', '1.0.0'
 gem 'ngannotate-rails', '1.2.1'
+gem 'ckeditor', github: 'galetahub/ckeditor'
+
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular', '1.5.3'
   gem 'rails-assets-angular-route', '1.5.3'
   gem 'rails-assets-angular-bootstrap', '1.3.1'
   gem 'rails-assets-angular-ui-codemirror', '0.3.0'
-  gem 'rails-assets-angular-ui-tinymce'
 end
 
 # See https://github.com/rails/execjs#readme for more supported runtimes

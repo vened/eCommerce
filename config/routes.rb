@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
   devise_for :admins
+
+  mount Ckeditor::Engine => '/ckeditor'
+
   namespace :staff do
     root 'root#index'
-
     resources :categories
     resources :configs, only: [:index, :new, :update, :create]
-    # resources :dashboard, only: [:index]
   end
 
   get '/shop', to: redirect('/shop/categories')
@@ -16,7 +17,6 @@ Rails.application.routes.draw do
 
   namespace :site, path: '/' do
     root 'pages#index'
-    # resources :pages, only: [:index]
   end
 
 end
