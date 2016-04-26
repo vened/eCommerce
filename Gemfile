@@ -37,8 +37,11 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular', '1.5.3'
   gem 'rails-assets-angular-route', '1.5.3'
+  gem 'rails-assets-angular-animate', '1.5.3'
+  gem 'rails-assets-angular-aria', '1.5.3'
   gem 'rails-assets-angular-bootstrap', '1.3.1'
   gem 'rails-assets-angular-ui-codemirror', '0.3.0'
+  gem 'rails-assets-angular-material', '1.0.7'
 end
 
 # See https://github.com/rails/execjs#readme for more supported runtimes

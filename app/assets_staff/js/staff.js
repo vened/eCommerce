@@ -16,10 +16,13 @@
 //= require jquery_ujs
 //= require angular
 //= require angular-route
+//= require angular-animate
+//= require angular-aria
 //= require angular-bootstrap
 //= require codemirror
 //= require angular-ui-codemirror
 //= require ckeditor/init
+//= require angular-material
 // END LIBS
 
 //= require ./app

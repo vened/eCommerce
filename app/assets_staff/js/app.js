@@ -7,7 +7,8 @@ var app = angular.module('eCommerceApp', [
     'appConstants',
     'templates',
     'ui.bootstrap',
-    'ui.codemirror'
+    'ui.codemirror',
+    'ngMaterial'
 ]);
 angular.module('templates', []);
 var appComponents = angular.module('appComponents', []);
