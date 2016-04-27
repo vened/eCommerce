@@ -5,7 +5,7 @@ module Staff
     # GET /staff/products
     # GET /staff/products.json
     def index
-      @staff_products = Product.all.page(params[:page])
+      @staff_products = Product.all.order(id: :asc).page(params[:page])
     end
 
     # GET /staff/products/new

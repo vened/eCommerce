@@ -12,10 +12,70 @@
         <%= f.input :sku, wrapper: :horizontal_form %>
         <%- options = nested_set_options(Category, @category) { |i| "#{'-' * i.level} #{i.name}" } %>
         <%= f.association :category, collection: options, wrapper: :horizontal_form %>
-        <%= f.input :hit, wrapper: :horizontal_form %>
-        <%= f.input :new, wrapper: :horizontal_form %>
-        <%= f.input :action, wrapper: :horizontal_form %>
-        <%= f.input :active, wrapper: :horizontal_form %>
+        <div class="form-group">
+            <%= f.label :hit, class: 'col-sm-2 control-label' do %>
+                <%= Product.human_attribute_name("hit") %>
+            <% end %>
+            <div class="col-sm-10">
+                <input value="0" name="product[hit]" type="hidden">
+                <input name="product[hit]"
+                       type="checkbox"
+                       style="position: absolute;left: -10000px"
+                       ng-model="hit"
+                       ng-init="hit = <%= @staff_product.hit %>"
+                       value="{{hit}}">
+                <md-switch ng-model="hit"
+                           style="margin: 0"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <%= f.label :new, class: 'col-sm-2 control-label' do %>
+                <%= Product.human_attribute_name("new") %>
+            <% end %>
+            <div class="col-sm-10">
+                <input value="0" name="product[new]" type="hidden">
+                <input name="product[new]"
+                       type="checkbox"
+                       style="position: absolute;left: -10000px"
+                       ng-model="new"
+                       ng-init="new = <%= @staff_product.new %>"
+                       value="{{new}}">
+                <md-switch ng-model="new"
+                           style="margin: 0"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <%= f.label :action, class: 'col-sm-2 control-label' do %>
+                <%= Product.human_attribute_name("action") %>
+            <% end %>
+            <div class="col-sm-10">
+                <input value="0" name="product[action]" type="hidden">
+                <input name="product[action]"
+                       type="checkbox"
+                       style="position: absolute;left: -10000px"
+                       ng-model="action"
+                       ng-init="action = <%= @staff_product.action %>"
+                       value="{{action}}">
+                <md-switch ng-model="action"
+                           style="margin: 0"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <%= f.label :active, class: 'col-sm-2 control-label' do %>
+                <%= Product.human_attribute_name("active") %>
+            <% end %>
+            <div class="col-sm-10">
+                <input value="0" name="product[active]" type="hidden">
+                <input name="product[active]"
+                       type="checkbox"
+                       style="position: absolute;left: -10000px"
+                       ng-model="active"
+                       ng-init="active = <%= @staff_product.active %>"
+                       value="{{active}}">
+                <md-switch ng-model="active"
+                           style="margin: 0"/>
+            </div>
+        </div>
         <%= f.input :mini_desc, wrapper: :horizontal_form, :as => :ckeditor, :input_html => { :ckeditor => { :toolbar => 'Full' } } %>
         <%= f.input :desc, wrapper: :horizontal_form, :as => :ckeditor, :input_html => { :ckeditor => { :toolbar => 'Full' } } %>
         <%= f.input :meta_title, wrapper: :horizontal_form %>

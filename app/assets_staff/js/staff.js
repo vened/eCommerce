@@ -14,6 +14,7 @@
 // BEGIN LIBS
 //= require jquery2
 //= require jquery_ujs
+//= require js-routes
 //= require angular
 //= require angular-route
 //= require angular-animate

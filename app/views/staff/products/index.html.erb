@@ -11,7 +11,7 @@
 </section>
 
 
-<section class="items-list">
+<section class="items-list" ng-controller="ProductsIndexController">
     <section class="items-list-item items-list-item__head">
         <div class="items-list-item-ceil product-list-ceil__id">
             ID
@@ -25,6 +25,7 @@
         <div class="items-list-item-ceil product-list-ceil__sku">
             <%= t('activerecord.attributes.product.sku') %>
         </div>
+        <div class="items-list-item-ceil product-list-ceil__pubs"></div>
         <div class="items-list-item-ceil product-list-ceil__actions"></div>
     </section>
     <%= render partial: "staff/products/list_item", locals: { staff_products: @staff_products, data: nil } %>

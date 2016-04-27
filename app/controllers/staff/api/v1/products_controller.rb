@@ -50,10 +50,8 @@ module Staff
         def update
           respond_to do |format|
             if @staff_product.update(staff_product_params)
-              format.html { redirect_to staff_products_path, notice: 'Product was successfully updated.' }
-              format.json { render :show, status: :ok, location: staff_products_path }
+              format.json { render json: @staff_product, status: :ok}
             else
-              format.html { render :edit }
               format.json { render json: @staff_product.errors, status: :unprocessable_entity }
             end
           end
@@ -74,7 +72,7 @@ module Staff
         private
         # Use callbacks to share common setup or constraints between actions.
         def set_staff_product
-          @staff_product = Product.find_by_slug(params[:id])
+          @staff_product = Product.find(params[:id])
         end
 
 

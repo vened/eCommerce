@@ -30,6 +30,40 @@
         <div class="items-list-item-ceil product-list-ceil__sku">
             <%= staff_product.sku %>
         </div>
+        <div class="items-list-item-ceil product-list-ceil__pubs">
+            <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-default"
+                        ng-init="staff_product_hit_<%= staff_product.id %> = <%= staff_product.hit.present? %>"
+                        ng-class="{'btn-primary': staff_product_hit_<%= staff_product.id %>}"
+                        ng-click="updateProduct(<%= staff_product.id %>, {hit: !staff_product_hit_<%= staff_product.id %>})"
+                >
+                    <i class="fa fa-fire"></i>
+                    <md-tooltip md-direction="top">
+                        <%= Product.human_attribute_name("hit") %>
+                    </md-tooltip>
+                </button>
+                <button type="button" class="btn btn-default"
+                        ng-init="staff_product_new_<%= staff_product.id %> = <%= staff_product.new.present? %>"
+                        ng-class="{'btn-primary': staff_product_new_<%= staff_product.id %>}"
+                        ng-click="updateProduct(<%= staff_product.id %>, {new: !staff_product_new_<%= staff_product.id %>})"
+                >
+                    <i class="fa fa-flag"></i>
+                    <md-tooltip md-direction="top">
+                        <%= Product.human_attribute_name("new") %>
+                    </md-tooltip>
+                </button>
+                <button type="button" class="btn btn-default"
+                        ng-init="staff_product_action_<%= staff_product.id %> = <%= staff_product.action.present? %>"
+                        ng-class="{'btn-primary': staff_product_action_<%= staff_product.id %>}"
+                        ng-click="updateProduct(<%= staff_product.id %>, {action: !staff_product_action_<%= staff_product.id %>})"
+                >
+                    <i class="fa fa-star"></i>
+                    <md-tooltip md-direction="top">
+                        <%= Product.human_attribute_name("action") %>
+                    </md-tooltip>
+                </button>
+            </div>
+        </div>
         <div class="items-list-item-ceil product-list-ceil__actions">
             <%= link_to staff_product_path(staff_product),
                         method: :delete,
