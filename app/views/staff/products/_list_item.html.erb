@@ -7,18 +7,24 @@
         <div class="items-list-item-ceil product-list-ceil__title">
             <div>
                 <%= link_to edit_staff_product_path(staff_product) do %>
-                    <span uib-tooltip="<%= t('products.edit_go') %>">
-                        <%= staff_product.name %>
-                    </span>
+                    <%= staff_product.name %>
+                    <md-tooltip md-direction="top">
+                        <%= t('products.edit_go') %>
+                    </md-tooltip>
                 <% end %>
             </div>
         </div>
 
         <div class="items-list-item-ceil product-list-ceil__category">
-            <%= link_to edit_staff_category_path(staff_product.category) do %>
-                    <span uib-tooltip="<%= t('categories.edit_go') %>">
-                        <%= staff_product.category.title %>
-                    </span>
+            <%- if staff_product.category.present? %>
+                <%= link_to edit_staff_category_path(staff_product.category) do %>
+                    <%= staff_product.category.title %>
+                    <md-tooltip md-direction="top">
+                        <%= t('categories.edit_go') %>
+                    </md-tooltip>
+                <%- end %>
+            <%- else %>
+                <div class="label label-danger">нет категории</div>
             <%- end %>
         </div>
         <div class="items-list-item-ceil product-list-ceil__sku">
@@ -29,7 +35,10 @@
                         method: :delete,
                         data:   { confirm: 'Are you sure?' },
                         class:  'btn btn-sm btn-danger' do %>
-                <i class="fa fa-trash-o" uib-tooltip="<%= t('products.destroy') %>"></i>
+                <i class="fa fa-trash-o"></i>
+                <md-tooltip md-direction="top">
+                    <%= t('products.destroy') %>
+                </md-tooltip>
             <%- end %>
         </div>
     </section>
