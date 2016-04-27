@@ -1,6 +1,9 @@
 <% staff_products.each do |staff_product| %>
 
-    <section class="items-list-item">
+    <section class="items-list-item"
+             ng-init="staff_product_active_<%= staff_product.id %> = <%= staff_product.active.present? %>"
+             ng-class="{'items-list-item__no-active': !staff_product_active_<%= staff_product.id %>}"
+    >
         <div class="items-list-item-ceil product-list-ceil__id">
             <%= staff_product.id %>
         </div>
@@ -63,6 +66,13 @@
                     </md-tooltip>
                 </button>
             </div>
+        </div>
+        <div class="items-list-item-ceil product-list-ceil__active">
+            <md-switch aria-label="active"
+                       style="margin: 0"
+                       ng-model="staff_product_active_<%= staff_product.id %>"
+                       ng-click="updateProduct(<%= staff_product.id %>, {active: !staff_product_active_<%= staff_product.id %>})"
+            />
         </div>
         <div class="items-list-item-ceil product-list-ceil__actions">
             <%= link_to staff_product_path(staff_product),
