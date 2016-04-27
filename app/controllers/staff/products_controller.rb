@@ -8,18 +8,10 @@ module Staff
       @staff_products = Product.all.page(params[:page])
     end
 
-
-    # GET /staff/products/1
-    # GET /staff/products/1.json
-    def show
-    end
-
-
     # GET /staff/products/new
     def new
       @staff_product = Product.new
     end
-
 
     # GET /staff/products/1/edit
     def edit

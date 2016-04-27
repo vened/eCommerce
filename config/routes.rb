@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     resources :categories
     resources :configs, only: [:index, :new, :update, :create]
     resources :products
+    namespace :api, defaults: { format: :json } do
+      namespace :v1 do
+        resources :products
+      end
+    end
+
   end
 
   get '/shop', to: redirect('/shop/categories')
