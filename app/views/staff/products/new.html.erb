@@ -11,11 +11,24 @@
                 <%= t('back') %>
             <% end %>
 
-            <%= f.button :submit %>
+            <button type="submit" name="commit" class="btn btn-sm btn-success">
+                <i class="fa fa-save"></i>
+                <%= t('products.save') %>
+            </button>
         </div>
     </section>
 
+    <%= f.error_notification %>
 
-    <%= render partial: 'form', locals: { f: f } %>
+
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="<%= t('base_info') %>">
+                <md-content class="md-padding">
+                    <%= render partial: 'form', locals: { f: f } %>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
 
 <% end %>

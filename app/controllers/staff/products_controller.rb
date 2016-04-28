@@ -8,10 +8,12 @@ module Staff
       @staff_products = Product.all.order(id: :asc).page(params[:page])
     end
 
+
     # GET /staff/products/new
     def new
       @staff_product = Product.new
     end
+
 
     # GET /staff/products/1/edit
     def edit
@@ -22,10 +24,9 @@ module Staff
     # POST /staff/products.json
     def create
       @staff_product = Product.new(staff_product_params)
-
       respond_to do |format|
         if @staff_product.save
-          format.html { redirect_to staff_products_path, notice: 'Product was successfully created.' }
+          format.html { redirect_to edit_staff_product_path(@staff_product), notice: t('products.new_success') }
           format.json { render :show, status: :created, location: staff_products_path }
         else
           format.html { render :new }
@@ -40,7 +41,7 @@ module Staff
     def update
       respond_to do |format|
         if @staff_product.update(staff_product_params)
-          format.html { redirect_to staff_products_path, notice: 'Product was successfully updated.' }
+          format.html { redirect_to staff_products_path, notice: t('products.edit_success') }
           format.json { render :show, status: :ok, location: staff_products_path }
         else
           format.html { render :edit }
@@ -55,7 +56,7 @@ module Staff
     def destroy
       @staff_product.destroy
       respond_to do |format|
-        format.html { redirect_to staff_products_url, notice: 'Product was successfully destroyed.' }
+        format.html { redirect_to staff_products_url, notice: t('products.destroy_success') }
         format.json { head :no_content }
       end
     end

@@ -1,14 +1,14 @@
 html,
 body{
     width: 100%;
-    height: 100%;
+    height: auto !important;
+    min-height: 100% !important;
 
     color: $base-font-color;
     font-size: $base-font-size;
     font-family: $base-font-family;
     font-weight: $base-font-weight;
-}
-body{
+
     background: $layout-background;
 }
 *{

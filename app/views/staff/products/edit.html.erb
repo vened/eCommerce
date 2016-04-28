@@ -11,11 +11,34 @@
                 <%= t('back') %>
             <% end %>
 
-            <%= f.button :submit %>
+            <%= link_to new_staff_product_path, class: 'btn btn-sm btn-success' do %>
+                <i class="fa fa-plus-circle"></i>
+                <%= t('products.create') %>
+            <% end %>
+            &nbsp;
+            <button type="submit" name="commit" class="btn btn-sm btn-success">
+                <i class="fa fa-save"></i>
+                <%= t('products.save') %>
+            </button>
         </div>
     </section>
 
+    <%= f.error_notification %>
 
-    <%= render partial: 'form', locals: { f: f } %>
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="<%= t('base_info') %>" md-active="'true'">
+                <md-content class="md-padding">
+                    <%= render partial: 'form', locals: { f: f } %>
+                </md-content>
+            </md-tab>
+            <md-tab label="<%= t('products.photo') %>">
+                <md-content class="md-padding">
+
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+
 
 <% end %>
