@@ -12,7 +12,7 @@ module Staff
 
 
         def create
-          @staff_product = Product.first
+          @staff_product = Product.find_by_slug(params[:product_id])
           @staff_product.photos.create(file: params[:file])
 
           if @staff_product.save
