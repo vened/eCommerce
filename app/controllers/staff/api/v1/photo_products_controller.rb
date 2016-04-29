@@ -1,13 +1,13 @@
 module Staff
   module Api
     module V1
-      class PhotosController < StaffApiController
+      class PhotoProductsController < StaffApiController
 
         def index
           @staff_product = Product.first
           @staff_api_v1_photos = @staff_product.photos
 
-          render json: @staff_api_v1_photos, each_serializer: Staff::Api::V1::PhotoSerializer
+          render json: @staff_api_v1_photos
         end
 
 
