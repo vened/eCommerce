@@ -32,15 +32,19 @@ appComponents.directive('uploaderComponent', function (FileUploader, $templateCa
     }
 });
 
-appComponents.directive('photosUpload', function ($templateCache) {
+appComponents.directive('photosUpload', function ($templateCache, $http) {
     return {
         restrict: 'E',
         template: $templateCache.get('uploader/photosUploaded.html'),
         scope: {
             photos: '=',
+            productId: '=',
             showForm: '@'
         },
         controller: function ($rootScope, $scope) {
+
+            console.log($scope.productId)
+
             $scope.showForm = false;
 
             $scope.findPhoto = function () {
@@ -52,10 +56,11 @@ appComponents.directive('photosUpload', function ($templateCache) {
             $scope.findPhoto();
 
 
-            $scope.photoDestroy = function (resourceName, resourceId, photo_id) {
-                // UploadedPhotosService.destroy(resourceName, resourceId, photo_id).success(function (val) {
-                //     $scope.findPhoto();
-                // })
+            $scope.photoDestroy = function (photo_id) {
+                $http.delete(Routes.staff_api_v1_product_photo_product_path($scope.productId, photo_id))
+                    .then(function (res){
+                        $scope.photos = res.data;
+                    })
             }
 
 

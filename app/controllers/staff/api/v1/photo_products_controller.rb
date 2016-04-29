@@ -4,7 +4,7 @@ module Staff
       class PhotoProductsController < StaffApiController
 
         def index
-          @staff_product = Product.first
+          @staff_product       = Product.first
           @staff_api_v1_photos = @staff_product.photos
 
           render json: @staff_api_v1_photos
@@ -21,6 +21,14 @@ module Staff
           else
             format.json { render json: @staff_product.errors, status: :unprocessable_entity }
           end
+        end
+
+
+        def destroy
+          @staff_photo_product = Photo.find(params[:id])
+          @staff_photo_product.destroy
+          @staff_product = Product.find(params[:product_id])
+          render json: @staff_product.photos
         end
 
 

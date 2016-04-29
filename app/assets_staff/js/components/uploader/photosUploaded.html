@@ -3,10 +3,19 @@
 		md-row-height-gt-md="1:1"
 		md-gutter="12px" md-gutter-gt-sm="8px">
 
-	<md-grid-tile class="green" ng-repeat="photo in photos track by $index">
+	<md-grid-tile class="md-grid-tile__gray" ng-repeat="photo in photos track by $index">
 		<div class="b-photo">
 			<div class="b-photo__img"
 			     style="background-image: url('{{ photo.file.thumb.url }}')">
+			</div>
+			<div class="b-photo__edit">
+				<div class="btn-group btn-group-sm">
+					<div class="btn btn-danger"
+					        ng-click="photoDestroy(photo.id)">
+						<i class="fa fa-trash"></i>
+					</div>
+					<div class="btn btn-primary"><i class="fa fa-pencil"></i></div>
+				</div>
 			</div>
 		</div>
 	</md-grid-tile>

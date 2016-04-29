@@ -2,9 +2,7 @@
  * app modules
  */
 var app = angular.module('eCommerceApp', [
-    'ngRoute',
     'appComponents',
-    'appConstants',
     'templates',
     'ui.bootstrap',
     'ui.codemirror',
@@ -13,7 +11,6 @@ var app = angular.module('eCommerceApp', [
 ]);
 angular.module('templates', []);
 var appComponents = angular.module('appComponents', []);
-var appConstants = angular.module('appConstants', []);
 
 /**
  * app headers config
