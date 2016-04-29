@@ -1,24 +1,25 @@
 module Staff
   module Api
     module V1
-      class PhotosController < StaffController
+      class PhotosController < StaffApiController
 
         def index
-          @staff_products = Product.all.page(params[:page])
+          @staff_product = Product.first
+          @staff_api_v1_photos = @staff_product.photos
 
-          render json: @staff_products
+          render json: @staff_api_v1_photos, each_serializer: Staff::Api::V1::PhotoSerializer
         end
+
 
         def create
           @staff_product = Product.first
           @staff_product.photos.create(file: params[:file])
 
-          respond_to do |format|
-            if @staff_product.save
-              # format.json { render :index, status: :created, location: staff_api_v1_photos_path }
-            else
-              format.json { render json: @staff_product.errors, status: :unprocessable_entity }
-            end
+          if @staff_product.save
+            # format.json { render :index, status: :created, location: staff_api_v1_photos_path }
+            render json: @staff_product.photos
+          else
+            format.json { render json: @staff_product.errors, status: :unprocessable_entity }
           end
         end
 

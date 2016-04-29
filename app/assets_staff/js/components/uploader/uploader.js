@@ -1,9 +1,11 @@
-appComponents.controller('UploaderController', function ($scope, FileUploader) {
+appComponents.controller('UploaderController', function ($scope, FileUploader, $http) {
 
 
     var uploader = $scope.uploader = new FileUploader({
         url: Routes.staff_api_v1_photos_path()
     });
+
+    $http.get(Routes.staff_api_v1_photos_path())
 
     // FILTERS
 
