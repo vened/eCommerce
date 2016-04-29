@@ -8,7 +8,8 @@ var app = angular.module('eCommerceApp', [
     'templates',
     'ui.bootstrap',
     'ui.codemirror',
-    'ngMaterial'
+    'ngMaterial',
+    'angularFileUpload'
 ]);
 angular.module('templates', []);
 var appComponents = angular.module('appComponents', []);

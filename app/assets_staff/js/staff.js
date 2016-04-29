@@ -20,6 +20,7 @@
 //= require angular-animate
 //= require angular-aria
 //= require angular-bootstrap
+//= require angularjs-file-upload
 //= require codemirror
 //= require angular-ui-codemirror
 //= require ckeditor/init

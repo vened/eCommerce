@@ -1,4 +1,4 @@
-2000.times do |i|
+100.times do |i|
   rand = Random.new
   name = Faker::Commerce.product_name
   sku  = Faker::Code.isbn

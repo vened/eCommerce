@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/carrierwaveuploader/carrierwave.git
+  revision: 98d73a9350478a34ea227595f172c283630356bf
+  specs:
+    carrierwave (0.11.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
+
+GIT
   remote: git://github.com/galetahub/ckeditor.git
   revision: 123389ea325b1521a3ac68cc0b1bac627a12f34b
   specs:
@@ -49,6 +58,7 @@ GEM
       railties (>= 4.2, < 6)
       sprockets (~> 3.0)
       tilt
+    angularjs-file-upload-rails (2.2.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.6)
       execjs
@@ -62,11 +72,6 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (8.2.4)
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
     carrierwave-imageoptimizer (1.2.1)
       carrierwave (~> 0.8)
       image_optimizer (~> 1.2)
@@ -247,10 +252,11 @@ PLATFORMS
 
 DEPENDENCIES
   angular-rails-templates (= 1.0.0)
+  angularjs-file-upload-rails (~> 2.2.0)
   awesome_nested_set (= 3.0.3)
   bootstrap-sass (= 3.3.6)
   byebug
-  carrierwave
+  carrierwave!
   carrierwave-imageoptimizer
   cells (= 4.0.4)
   cells-erb (= 0.0.7)
