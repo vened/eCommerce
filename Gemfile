@@ -16,7 +16,7 @@ gem 'mini_magick'
 gem 'simple_form'
 
 ###### api ######
-gem 'rails-api', '~> 0.4.0'
+# gem 'rails-api', '~> 0.4.0'
 gem 'active_model_serializers', '~> 0.9.5'
 
 ###### localisation ######

@@ -1,7 +1,14 @@
-<div class="row">
-	<div class="col-md-3" ng-repeat="photo in photos track by $index">
-		<div class="thumbnail">
-			<img ng-src="{{photo.file.thumb.url}}"/>
+<md-grid-list
+		md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+		md-row-height-gt-md="1:1"
+		md-gutter="12px" md-gutter-gt-sm="8px">
+
+	<md-grid-tile class="green" ng-repeat="photo in photos track by $index">
+		<div class="b-photo">
+			<div class="b-photo__img"
+			     style="background-image: url('{{ photo.file.thumb.url }}')">
+			</div>
 		</div>
-	</div>
-</div>
+	</md-grid-tile>
+
+</md-grid-list>

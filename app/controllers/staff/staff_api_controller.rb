@@ -1,6 +1,6 @@
 module Staff
-  class StaffApiController < ActionController::API
-    include AbstractController::Translation
+  class StaffApiController < ActionController::Base
+    # include AbstractController::Translation
     include ActionController::Serialization
 
     def default_serializer_options
