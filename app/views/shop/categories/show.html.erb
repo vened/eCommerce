@@ -48,3 +48,15 @@
     <strong>Pub:</strong>
     <%= @category.active %>
 </p>
+
+
+<div class="row">
+    <%- @category.products.each do |product| %>
+        <div class="col-md-3">
+            <h3>
+                <%= product.name %>
+            </h3>
+            <%= product.desc %>
+        </div>
+    <% end %>
+</div>
