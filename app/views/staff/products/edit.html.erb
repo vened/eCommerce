@@ -33,7 +33,9 @@
                 </md-content>
             </md-tab>
             <md-tab label="<%= t('products.photo') %>" md-active="'true'">
-                <%= render partial: 'form_photo', locals: { f: f } %>
+                <md-content class="md-padding">
+                    <%= render partial: 'form_photo', locals: { f: f } %>
+                </md-content>
             </md-tab>
         </md-tabs>
     </md-content>
