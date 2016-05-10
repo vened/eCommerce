@@ -19,18 +19,19 @@
         </div>
 
         <div class="items-list-item-ceil product-list-ceil__category">
-            <%- if staff_product.categories.present? %>
-                <%-  staff_product.categories.each do |category| %>
-                  <%= link_to edit_staff_category_path(category) do %>
-                      <%= category.title %>
-                      <md-tooltip md-direction="top">
-                          <%= t('categories.edit_go') %>
-                      </md-tooltip>
-                  <%- end %>
-                <%- end %>
+
+            <%- staff_product_category = staff_product.category %>
+            <%- if staff_product_category.present? %>
+              <%= link_to edit_staff_category_path(staff_product_category) do %>
+                  <%= staff_product_category.title %>
+                  <md-tooltip md-direction="top">
+                      <%= t('categories.edit_go') %>
+                    </md-tooltip>
+              <%- end %>
             <%- else %>
                 <div class="label label-danger">нет категории</div>
-            <%- end %>
+            <% end %>
+
         </div>
         <div class="items-list-item-ceil product-list-ceil__sku">
             <%= staff_product.sku %>

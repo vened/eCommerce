@@ -28,6 +28,8 @@ module Staff
         if @staff_product.save
 
           if params[:category]
+            @staff_product.category_create(params[:category])
+
             @staff_category = Category.find(params[:category])
             unless @staff_product.categories.exists?(@staff_category)
               @staff_product.categories << @staff_category
@@ -37,6 +39,7 @@ module Staff
                                                                   @staff_product.id, params[:category]
             ).take!
             @staff_products_categories.update(root_category: true)
+
           end
 
           format.html { redirect_to edit_staff_product_path(@staff_product), notice: t('products.new_success') }
@@ -56,15 +59,16 @@ module Staff
         if @staff_product.update(staff_product_params)
 
           if params[:category]
-            @staff_category = Category.find(params[:category])
-            unless @staff_product.categories.exists?(@staff_category)
-              @staff_product.categories << @staff_category
-            end
-            @staff_products_categories = ProductsCategory.where(
-                                                                  "product_id = ? AND category_id = ?",
-                                                                  @staff_product.id, params[:category]
-            ).take!
-            @staff_products_categories.update(root_category: true)
+            @staff_product.category_create(params[:category])
+            # @staff_category = Category.find(params[:category])
+            # unless @staff_product.categories.exists?(@staff_category)
+              # @staff_product.categories << @staff_category
+            # end
+            # @staff_products_categories = ProductsCategory.where(
+            #                                                       "product_id = ? AND category_id = ?",
+            #                                                       @staff_product.id, params[:category]
+            # ).take!
+            # @staff_products_categories.update(root_category: true)
           end
 
           format.html { redirect_to staff_products_path, notice: t('products.edit_success') }
