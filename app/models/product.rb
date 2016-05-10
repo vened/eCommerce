@@ -47,4 +47,9 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def photo
+    photos = self.photos
+
+  end
+
 end

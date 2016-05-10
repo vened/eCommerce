@@ -8,14 +8,20 @@
             <%= staff_product.id %>
         </div>
         <div class="items-list-item-ceil product-list-ceil__title">
-            <div>
+
+            <%#= image_tag staff_product.photos.first %>
+            <%= debug staff_product.photo %>
+
+            <%- staff_product.photo.each do |photo| %>
+              <%= debug photo.file.url %>
+            <%- end %>
+
                 <%= link_to edit_staff_product_path(staff_product) do %>
                     <%= staff_product.name %>
                     <md-tooltip md-direction="top">
                         <%= t('products.edit_go') %>
                     </md-tooltip>
                 <% end %>
-            </div>
         </div>
 
         <div class="items-list-item-ceil product-list-ceil__category">
