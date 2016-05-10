@@ -13,7 +13,7 @@ module Staff
 
         def create
           @staff_product = Product.find_by_slug(params[:product_id])
-          @staff_product.photos.create(file: params[:file])
+          @staff_product.photos.create(attach: params[:attach])
 
           if @staff_product.save
             # format.json { render :index, status: :created, location: staff_api_v1_photos_path }
@@ -34,7 +34,7 @@ module Staff
 
         private
         def staff_api_photos_params
-          params.require(:photo).permit(:name, :file, :image_id, :image_type)
+          params.require(:photo).permit(:name, :attach, :image_id, :image_type)
         end
       end
     end

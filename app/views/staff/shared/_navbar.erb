@@ -1,35 +1,41 @@
 <nav class="navbar navbar-inverse">
-    <div class="collapse navbar-collapse">
-        <div class="container">
-            <ul class="nav navbar-nav">
-                <li class="dropdown" uib-dropdown>
-                    <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
-                        <%= t('catalog') %>
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="split-button">
-                        <li>
-                            <%= link_to t('categories.list'), staff_categories_path %>
-                        </li>
-                        <li>
-                            <%= link_to t('products.list'), staff_products_path %>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <%= link_to staff_configs_path do %>
-                        <i class="fa fa-wrench"></i>
-                        <%= t('configs.index') %>
-                    <% end %>
-                </li>
-            </ul>
-        </div>
+  <div class="collapse navbar-collapse">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li class="dropdown" uib-dropdown>
+          <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+            <%= t('catalog') %>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="split-button">
+            <li>
+              <%= link_to t('categories.list'), staff_categories_path %>
+            </li>
+            <li>
+              <%= link_to t('products.list'), staff_products_path %>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <%= link_to t('categories.list'), staff_categories_path %>
+        </li>
+        <li>
+          <%= link_to t('products.list'), staff_products_path %>
+        </li>
+        <li>
+          <%= link_to staff_configs_path do %>
+              <i class="fa fa-wrench"></i>
+              <%= t('configs.index') %>
+          <% end %>
+        </li>
+      </ul>
     </div>
+  </div>
 
-    <button type="button" class="navbar-toggle collapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
+  <button type="button" class="navbar-toggle collapsed">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
 </nav>

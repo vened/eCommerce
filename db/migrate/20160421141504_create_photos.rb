@@ -2,7 +2,7 @@ class CreatePhotos < ActiveRecord::Migration
   def change
     create_table :photos do |t|
       t.string :name
-      t.string :file
+      t.string :attach
       t.integer :image_id
       t.string :image_type
       t.timestamps null: false

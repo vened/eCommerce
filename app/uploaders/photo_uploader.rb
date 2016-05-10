@@ -15,6 +15,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
 
+  version :mini do
+    process :resize_to_fill => [50, 50]
+  end
+
   version :thumb do
     process :resize_to_limit => [220, 220]
   end

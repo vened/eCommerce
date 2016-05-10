@@ -4,96 +4,96 @@
              ng-init="staff_product_active_<%= staff_product.id %> = <%= staff_product.active.present? %>"
              ng-class="{'items-list-item__no-active': !staff_product_active_<%= staff_product.id %>}"
     >
-        <div class="items-list-item-ceil product-list-ceil__id">
-            <%= staff_product.id %>
-        </div>
-        <div class="items-list-item-ceil product-list-ceil__title">
+      <div class="items-list-item-ceil product-list-ceil__id">
+        <%= staff_product.id %>
+      </div>
+      <div class="items-list-item-ceil product-list-ceil__title">
 
-            <%#= image_tag staff_product.photos.first %>
-            <%= debug staff_product.photo %>
+        <%- photo = staff_product.first_photo %>
+        <%= image_tag photo.present? ? photo.attach.mini : nil %>
 
-            <%- staff_product.photo.each do |photo| %>
-              <%= debug photo.file.url %>
-            <%- end %>
+        <%#- staff_product.first_photo.each do |photo| %>
+        <%#= debug photo.file.url %>
+        <%#- end %>
 
-                <%= link_to edit_staff_product_path(staff_product) do %>
-                    <%= staff_product.name %>
-                    <md-tooltip md-direction="top">
-                        <%= t('products.edit_go') %>
-                    </md-tooltip>
-                <% end %>
-        </div>
+        <%= link_to edit_staff_product_path(staff_product) do %>
+            <%= staff_product.name %>
+            <md-tooltip md-direction="top">
+              <%= t('products.edit_go') %>
+            </md-tooltip>
+        <% end %>
+      </div>
 
-        <div class="items-list-item-ceil product-list-ceil__category">
+      <div class="items-list-item-ceil product-list-ceil__category">
 
-            <%- staff_product_category = staff_product.category %>
-            <%- if staff_product_category.present? %>
-              <%= link_to edit_staff_category_path(staff_product_category) do %>
-                  <%= staff_product_category.title %>
-                  <md-tooltip md-direction="top">
-                      <%= t('categories.edit_go') %>
-                    </md-tooltip>
-              <%- end %>
-            <%- else %>
-                <div class="label label-danger">нет категории</div>
-            <% end %>
-
-        </div>
-        <div class="items-list-item-ceil product-list-ceil__sku">
-            <%= staff_product.sku %>
-        </div>
-        <div class="items-list-item-ceil product-list-ceil__pubs">
-            <div class="btn-group btn-group-sm">
-                <button type="button" class="btn btn-default"
-                        ng-init="staff_product_hit_<%= staff_product.id %> = <%= staff_product.hit.present? %>"
-                        ng-class="{'btn-primary': staff_product_hit_<%= staff_product.id %>}"
-                        ng-click="updateProduct(<%= staff_product.id %>, {hit: !staff_product_hit_<%= staff_product.id %>})"
-                >
-                    <i class="fa fa-fire"></i>
-                    <md-tooltip md-direction="top">
-                        <%= Product.human_attribute_name("hit") %>
-                    </md-tooltip>
-                </button>
-                <button type="button" class="btn btn-default"
-                        ng-init="staff_product_new_<%= staff_product.id %> = <%= staff_product.new.present? %>"
-                        ng-class="{'btn-primary': staff_product_new_<%= staff_product.id %>}"
-                        ng-click="updateProduct(<%= staff_product.id %>, {new: !staff_product_new_<%= staff_product.id %>})"
-                >
-                    <i class="fa fa-flag"></i>
-                    <md-tooltip md-direction="top">
-                        <%= Product.human_attribute_name("new") %>
-                    </md-tooltip>
-                </button>
-                <button type="button" class="btn btn-default"
-                        ng-init="staff_product_action_<%= staff_product.id %> = <%= staff_product.action.present? %>"
-                        ng-class="{'btn-primary': staff_product_action_<%= staff_product.id %>}"
-                        ng-click="updateProduct(<%= staff_product.id %>, {action: !staff_product_action_<%= staff_product.id %>})"
-                >
-                    <i class="fa fa-star"></i>
-                    <md-tooltip md-direction="top">
-                        <%= Product.human_attribute_name("action") %>
-                    </md-tooltip>
-                </button>
-            </div>
-        </div>
-        <div class="items-list-item-ceil product-list-ceil__active">
-            <md-switch aria-label="active"
-                       style="margin: 0"
-                       ng-model="staff_product_active_<%= staff_product.id %>"
-                       ng-click="updateProduct(<%= staff_product.id %>, {active: !staff_product_active_<%= staff_product.id %>})"
-            />
-        </div>
-        <div class="items-list-item-ceil product-list-ceil__actions">
-            <%= link_to staff_product_path(staff_product),
-                        method: :delete,
-                        data:   { confirm: 'Are you sure?' },
-                        class:  'btn btn-sm btn-danger' do %>
-                <i class="fa fa-trash-o"></i>
+        <%- staff_product_category = staff_product.category %>
+        <%- if staff_product_category.present? %>
+            <%= link_to edit_staff_category_path(staff_product_category) do %>
+                <%= staff_product_category.title %>
                 <md-tooltip md-direction="top">
-                    <%= t('products.destroy') %>
+                  <%= t('categories.edit_go') %>
                 </md-tooltip>
             <%- end %>
+        <%- else %>
+            <div class="label label-danger">нет категории</div>
+        <% end %>
+
+      </div>
+      <div class="items-list-item-ceil product-list-ceil__sku">
+        <%= staff_product.sku %>
+      </div>
+      <div class="items-list-item-ceil product-list-ceil__pubs">
+        <div class="btn-group btn-group-sm">
+          <button type="button" class="btn btn-default"
+                  ng-init="staff_product_hit_<%= staff_product.id %> = <%= staff_product.hit.present? %>"
+                  ng-class="{'btn-primary': staff_product_hit_<%= staff_product.id %>}"
+                  ng-click="updateProduct(<%= staff_product.id %>, {hit: !staff_product_hit_<%= staff_product.id %>})"
+          >
+            <i class="fa fa-fire"></i>
+            <md-tooltip md-direction="top">
+              <%= Product.human_attribute_name("hit") %>
+            </md-tooltip>
+          </button>
+          <button type="button" class="btn btn-default"
+                  ng-init="staff_product_new_<%= staff_product.id %> = <%= staff_product.new.present? %>"
+                  ng-class="{'btn-primary': staff_product_new_<%= staff_product.id %>}"
+                  ng-click="updateProduct(<%= staff_product.id %>, {new: !staff_product_new_<%= staff_product.id %>})"
+          >
+            <i class="fa fa-flag"></i>
+            <md-tooltip md-direction="top">
+              <%= Product.human_attribute_name("new") %>
+            </md-tooltip>
+          </button>
+          <button type="button" class="btn btn-default"
+                  ng-init="staff_product_action_<%= staff_product.id %> = <%= staff_product.action.present? %>"
+                  ng-class="{'btn-primary': staff_product_action_<%= staff_product.id %>}"
+                  ng-click="updateProduct(<%= staff_product.id %>, {action: !staff_product_action_<%= staff_product.id %>})"
+          >
+            <i class="fa fa-star"></i>
+            <md-tooltip md-direction="top">
+              <%= Product.human_attribute_name("action") %>
+            </md-tooltip>
+          </button>
         </div>
+      </div>
+      <div class="items-list-item-ceil product-list-ceil__active">
+        <md-switch aria-label="active"
+                   style="margin: 0"
+                   ng-model="staff_product_active_<%= staff_product.id %>"
+                   ng-click="updateProduct(<%= staff_product.id %>, {active: !staff_product_active_<%= staff_product.id %>})"
+        />
+      </div>
+      <div class="items-list-item-ceil product-list-ceil__actions">
+        <%= link_to staff_product_path(staff_product),
+                    method: :delete,
+                    data: {confirm: 'Are you sure?'},
+                    class: 'btn btn-sm btn-danger' do %>
+            <i class="fa fa-trash-o"></i>
+            <md-tooltip md-direction="top">
+              <%= t('products.destroy') %>
+            </md-tooltip>
+        <%- end %>
+      </div>
     </section>
 
 <% end %>

@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20160421141505) do
 
   create_table "photos", force: :cascade do |t|
     t.string   "name"
-    t.string   "file"
+    t.string   "attach"
     t.integer  "image_id"
     t.string   "image_type"
     t.datetime "created_at", null: false

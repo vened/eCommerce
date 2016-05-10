@@ -9,7 +9,7 @@ appComponents.directive('uploaderComponent', function (FileUploader, $templateCa
 
             var uploader = $scope.uploader = new FileUploader({
                 url: $scope.uploadUrl,
-                alias: 'file',
+                alias: 'attach',
                 autoUpload: true
             });
 

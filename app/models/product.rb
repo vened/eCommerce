@@ -22,7 +22,7 @@ class Product < ActiveRecord::Base
   # создание базовой категории товара
   # product.category_create(category_id)
   def category_create (category_id)
-    category = Category.find(category_id)
+    category = Category.find_by_id(category_id)
     unless self.categories.exists?(category)
       self.categories << category
     end
@@ -41,15 +41,14 @@ class Product < ActiveRecord::Base
   def category
     category = self.products_categories.find_by_root_category(true)
     if category.present?
-      Category.find(category.category_id)
+      Category.find_by_id(category.category_id)
     else
       nil
     end
   end
 
-  def photo
-    photos = self.photos
-
+  def first_photo
+    self.photos.take
   end
 
 end
