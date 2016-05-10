@@ -71,8 +71,10 @@ module Staff
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def staff_product_params
-      params.require(:product).permit(:name, :slug, :hit, :new, :action, :active, :mini_desc, :desc, :meta_title, :meta_key, :meta_desc,
-                                      :category_id, :sku, :photos,
+      params.require(:product).permit(:name, :slug, :hit, :new, :action, :active, :mini_desc, :desc, :meta_title,
+                                      :meta_key, :meta_desc,
+                                      :sku,
+                                      :category_ids => [],
                                       :photos => [:url, :id, :image_id, :image_type])
     end
 

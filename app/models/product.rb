@@ -1,7 +1,9 @@
 class Product < ActiveRecord::Base
   include Slug
 
-  belongs_to :category
+  has_many :products_categories
+  has_many :categories, through: :products_categories
+
   has_many :photos, as: :image
 
   validates :name, presence: true
