@@ -39,6 +39,8 @@ ru:
         meta_desc: Meta Description
         mini_desc: Краткое описание
         desc: Полное описание
+        category: Категория
+        categories: Допольнительные категории
 
 
   products:

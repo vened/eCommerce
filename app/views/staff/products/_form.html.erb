@@ -2,8 +2,22 @@
     <%= f.input :name, wrapper: :horizontal_form %>
     <%= f.input :slug, wrapper: :horizontal_form %>
     <%= f.input :sku, wrapper: :horizontal_form %>
-    <%#- options = nested_set_options(Category, @category) { |i| "#{'-' * i.level} #{i.name}" } %>
-    <%= f.association :categories, wrapper: :horizontal_form %>
+
+    <%- options = nested_set_options(Category, @category) { |i| "#{'-' * i.level} #{i.name}" } %>
+
+    <div class="form-group">
+        <%= f.label :category, class: 'col-sm-2 control-label' do %>
+            <%= Product.human_attribute_name("category") %>
+        <% end %>
+        <div class="col-sm-10">
+            <input value="0" name="product[category]" type="hidden">
+
+            <%= select_tag(:category, options_for_select(options)) %>
+
+        </div>
+    </div>
+
+    <%= f.association :categories, collection: options, wrapper: :horizontal_form %>
     <div class="form-group">
         <%= f.label :hit, class: 'col-sm-2 control-label' do %>
             <%= Product.human_attribute_name("hit") %>

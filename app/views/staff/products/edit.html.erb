@@ -27,12 +27,12 @@
 
     <md-content>
         <md-tabs md-dynamic-height md-border-bottom>
-            <md-tab label="<%= t('base_info') %>">
+            <md-tab label="<%= t('base_info') %>" md-active="'true'">
                 <md-content class="md-padding">
                     <%= render partial: 'form', locals: { f: f } %>
                 </md-content>
             </md-tab>
-            <md-tab label="<%= t('products.photo') %>" md-active="'true'">
+            <md-tab label="<%= t('products.photo') %>">
                 <md-content class="md-padding">
                     <%= render partial: 'form_photo', locals: { f: f } %>
                 </md-content>
