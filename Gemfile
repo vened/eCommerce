@@ -46,7 +46,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular-aria', '1.5.3'
   gem 'rails-assets-angular-bootstrap', '1.3.1'
   gem 'rails-assets-angular-ui-codemirror', '0.3.0'
-  gem 'rails-assets-angular-material', '1.0.7'
+  gem 'rails-assets-angular-material', '1.0.8'
 end
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -78,4 +78,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
