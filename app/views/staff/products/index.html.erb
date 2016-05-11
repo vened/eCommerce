@@ -11,25 +11,23 @@
 </section>
 
 
-<section class="items-list" ng-controller="ProductsIndexController">
-    <section class="items-list-item items-list-item__head">
-        <div class="items-list-item-ceil product-list-ceil__id">
+<section class="b-list" ng-controller="ProductsIndexController">
+    <section class="b-list-item b-list-item__head">
+        <div class="b-list-ceil b-list-ceil__product-id">
             ID
         </div>
-        <div class="items-list-item-ceil product-list-ceil__title">
+        <div class="b-list-ceil b-list-ceil__product-title">
             <%= t('activerecord.models.product.one') %>
         </div>
-        <div class="items-list-item-ceil product-list-ceil__category">
+        <div class="b-list-ceil b-list-ceil__product-category">
             <%= t('activerecord.models.category.one') %>
         </div>
-        <div class="items-list-item-ceil product-list-ceil__sku">
+        <div class="b-list-ceil b-list-ceil__product-sku">
             <%= t('activerecord.attributes.product.sku') %>
         </div>
-        <div class="items-list-item-ceil product-list-ceil__pubs"></div>
-        <div class="items-list-item-ceil product-list-ceil__active"></div>
-        <div class="items-list-item-ceil product-list-ceil__actions"></div>
     </section>
     <%= render partial: "staff/products/list_item", locals: { staff_products: @staff_products, data: nil } %>
 </section>
+
 
 <%= paginate @staff_products %>

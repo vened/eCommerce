@@ -1,16 +1,17 @@
 <% staff_products.each do |staff_product| %>
 
-    <section class="items-list-item"
+    <section class="b-list-item"
              ng-init="staff_product_active_<%= staff_product.id %> = <%= staff_product.active.present? %>"
              ng-class="{'items-list-item__no-active': !staff_product_active_<%= staff_product.id %>}"
     >
-        <div class="items-list-item-ceil product-list-ceil__id">
+
+        <div class="b-list-ceil b-list-ceil__product-id">
             <%= staff_product.id %>
         </div>
-        <div class="items-list-item-ceil product-list-ceil__title">
+        <div class="b-list-ceil b-list-ceil__product-title">
 
-            <div class="product-list-ceil__photo">
-                <%- photo = staff_product.first_photo %>
+            <%- photo = staff_product.first_photo %>
+            <div class="b-list-ceil__product-photo">
                 <%- if photo.present? %>
                     <%= image_tag photo.attach.mini %>
                 <%- else %>
@@ -24,10 +25,10 @@
                     <%= t('products.edit_go') %>
                 </md-tooltip>
             <% end %>
+
         </div>
 
-        <div class="items-list-item-ceil product-list-ceil__category">
-
+        <div class="b-list-ceil b-list-ceil__product-category">
             <%- staff_product_category = staff_product.category %>
             <%- if staff_product_category.present? %>
                 <%= link_to edit_staff_category_path(staff_product_category) do %>
@@ -39,12 +40,12 @@
             <%- else %>
                 <div class="label label-danger">нет категории</div>
             <% end %>
-
         </div>
-        <div class="items-list-item-ceil product-list-ceil__sku">
+        <div class="b-list-ceil b-list-ceil__product-sku">
             <%= staff_product.sku %>
         </div>
-        <div class="items-list-item-ceil product-list-ceil__pubs">
+        <div class="b-list-ceil b-list-ceil__product-active">
+
             <div class="btn-group btn-group-sm">
                 <button type="button" class="btn btn-default"
                         ng-init="staff_product_hit_<%= staff_product.id %> = <%= staff_product.hit.present? %>"
@@ -77,15 +78,14 @@
                     </md-tooltip>
                 </button>
             </div>
-        </div>
-        <div class="items-list-item-ceil product-list-ceil__active">
+
             <md-switch aria-label="active"
-                       style="margin: 0"
+                       class="b-list-ceil__product-switch"
                        ng-model="staff_product_active_<%= staff_product.id %>"
                        ng-click="updateProduct(<%= staff_product.id %>, {active: !staff_product_active_<%= staff_product.id %>})"
-            />
-        </div>
-        <div class="items-list-item-ceil product-list-ceil__actions">
+            ></md-switch>
+
+
             <%= link_to staff_product_path(staff_product),
                         method: :delete,
                         data:   { confirm: 'Are you sure?' },
@@ -95,6 +95,7 @@
                     <%= t('products.destroy') %>
                 </md-tooltip>
             <%- end %>
+
         </div>
     </section>
 
