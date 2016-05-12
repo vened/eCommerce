@@ -47,6 +47,8 @@ class Product < ActiveRecord::Base
     end
   end
 
+  # получение фото товара
+  # product.first_photo
   def first_photo
     self.photos.take
   end
