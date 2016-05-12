@@ -2,44 +2,34 @@ module Staff
   module Api
     module V1
       class ProductVariantsController < StaffController
-        before_action :set_staff_product_variants, only: [:show, :edit, :update, :destroy]
+        before_action :set_staff_api_v1_product, only: [:index, :create, :update, :destroy]
+        before_action :set_staff_api_v1_product_variant, only: [:update, :destroy]
 
         def index
-          @staff_api_v1_product_variants = Product.find_by_id(params[:product_id]).product_variants
-
-          render json: @staff_api_v1_product_variants
-        end
-
-        def show
-        end
-
-        def new
-          @staff_product = Product.new
+          render json: @staff_api_v1_product.product_variants.order(:id)
         end
 
         def edit
         end
 
         def create
-          @staff_product = Product.new(staff_product_params)
+          @staff_api_v1_product_variant = @staff_api_v1_product.product_variants.new(staff_api_v1_product_variants_params)
 
           respond_to do |format|
-            if @staff_product.save
-              format.html { redirect_to staff_products_path, notice: 'Product was successfully created.' }
-              format.json { render :show, status: :created, location: staff_products_path }
+            if @staff_api_v1_product_variant.save
+              format.json { render json: @staff_api_v1_product.product_variants.order(:id), status: :created, location: staff_api_v1_product_product_variants_path }
             else
-              format.html { render :new }
-              format.json { render json: @staff_product.errors, status: :unprocessable_entity }
+              format.json { render json: @staff_api_v1_product.product_variants.errors, status: :unprocessable_entity }
             end
           end
         end
 
         def update
           respond_to do |format|
-            if @staff_product.update(staff_product_params)
-              format.json { render json: @staff_product, status: :ok }
+            if @staff_api_v1_product_variant.update(staff_api_v1_product_variants_params)
+              format.json { render json: @staff_api_v1_product.product_variants.order(:id), status: :ok }
             else
-              format.json { render json: @staff_product.errors, status: :unprocessable_entity }
+              format.json { render json: @staff_api_v1_product_variant.errors, status: :unprocessable_entity }
             end
           end
         end
@@ -54,12 +44,16 @@ module Staff
 
 
         private
-        def set_staff_product_variants
-          @staff_product = Product.find(params[:id])
+        def set_staff_api_v1_product
+          @staff_api_v1_product = Product.find_by_id(params[:product_id])
         end
 
-        def staff_product_variants_params
-          params.require(:product).permit(:product_id)
+        def set_staff_api_v1_product_variant
+          @staff_api_v1_product_variant = ProductVariant.find(params[:id])
+        end
+
+        def staff_api_v1_product_variants_params
+          params.require(:product_variant).permit(:sku, :name, :price, :old_price, :product_id)
         end
       end
     end

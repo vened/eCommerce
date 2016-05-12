@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       namespace :v1 do
         resources :products do
           resources :photo_products, only: [:index, :create, :destroy]
-          resources :product_variants, only: [:index, :create, :edit, :destroy]
+          resources :product_variants, only: [:index, :create, :update, :destroy]
         end
       end
     end

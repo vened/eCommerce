@@ -4,9 +4,89 @@ ng-controller="ProductVariantsController"
 ng-init="getProductVariants(<%= @staff_product.id %>)"
 >
 
-  {{product_variants}}
+  <section class="b-list b-list-product-variant">
 
-  <span class="btn btn-primary">
+    <section class="b-list-item b-list-item__head">
+      <div class="b-list-ceil b-list-ceil__product-variant-photos">
+        <%= ProductVariant.human_attribute_name("photos") %>
+      </div>
+      <div class="b-list-ceil b-list-ceil__product-variant-name">
+        <%= ProductVariant.human_attribute_name("name") %>
+      </div>
+      <div class="b-list-ceil b-list-ceil__product-variant-sku">
+        <%= ProductVariant.human_attribute_name("sku") %>
+      </div>
+      <div class="b-list-ceil b-list-ceil__product-variant-price">
+        <%= ProductVariant.human_attribute_name("price") %>
+      </div>
+      <div class="b-list-ceil b-list-ceil__product-variant-old_price">
+        <%= ProductVariant.human_attribute_name("old_price") %>
+      </div>
+    </section>
+
+    <section class="b-list-item" ng-repeat="product_variant in product_variants">
+      <div class="b-list-ceil b-list-ceil__product-variant-photos">
+        {{product_variant.photos}}
+      </div>
+      <div class="b-list-ceil b-list-ceil__product-variant-name">
+        <input type="text"
+               class="b-list-ceil__product-variant-input"
+               ng-init="product_variant[$index]['name'] = product_variant.name"
+               ng-model="product_variant[$index]['name']"
+               ng-blur="updateProductVariant({
+                                              product_id: <%= @staff_product.id %>,
+                                              id: product_variant.id,
+                                              name: product_variant[$index]['name'],
+                                              })"
+        />
+      </div>
+      <div class="b-list-ceil b-list-ceil__product-variant-sku">
+        <input type="text"
+               class="b-list-ceil__product-variant-input"
+               ng-init="product_variant[$index]['sku'] = product_variant.sku"
+               ng-model="product_variant[$index]['sku']"
+               ng-blur="updateProductVariant({
+                                              product_id: <%= @staff_product.id %>,
+                                              id: product_variant.id,
+                                              sku: product_variant[$index]['sku'],
+                                              })"
+        />
+      </div>
+      <div class="b-list-ceil b-list-ceil__product-variant-price">
+        <input type="text"
+               class="b-list-ceil__product-variant-input"
+               ng-init="product_variant[$index]['price'] = product_variant.price"
+               ng-model="product_variant[$index]['price']"
+               ng-blur="updateProductVariant({
+                                              product_id: <%= @staff_product.id %>,
+                                              id: product_variant.id,
+                                              price: product_variant[$index]['price'],
+                                              })"
+        />
+      </div>
+      <div class="b-list-ceil b-list-ceil__product-variant-old_price">
+        <input type="text"
+               class="b-list-ceil__product-variant-input"
+               ng-init="product_variant[$index]['old_price'] = product_variant.old_price"
+               ng-model="product_variant[$index]['old_price']"
+               ng-blur="updateProductVariant({
+                                              product_id: <%= @staff_product.id %>,
+                                              id: product_variant.id,
+                                              old_price: product_variant[$index]['old_price'],
+                                              })"
+        />
+      </div>
+    </section>
+
+  </section>
+
+  <section class="b-product-variants">
+
+  </section>
+
+
+  <span class="btn btn-primary"
+        ng-click="newProductVariant(<%= @staff_product.id %>)">
     <i class="fa fa-plus-circle"></i>
     <%= t('products.product_variant_add') %>
   </span>

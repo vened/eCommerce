@@ -1,5 +1,5 @@
 $b-list-item-ceil-padding-vertical: 4px;
-$b-list-item-ceil-padding-vertical-head: 15px;
+$b-list-item-ceil-padding-vertical-head: 10px;
 $b-list-item-ceil-padding-horizontal: 10px;
 .b-list{
     border-width: 1px;
@@ -29,7 +29,8 @@ $b-list-item-ceil-padding-horizontal: 10px;
 
     padding: $b-list-item-ceil-padding-vertical $b-list-item-ceil-padding-horizontal;
 
-    box-shadow: 1px 0 0 0 $gray-light-2;
+    //box-shadow: 1px 0 0 0 $gray-light-2;
+    border-right: 1px solid $gray-light-2;
 }
 ////////
 ////////
@@ -75,5 +76,42 @@ $b-list-item-ceil-padding-horizontal: 10px;
 
     .md-container{
         margin: 0;
+    }
+}
+////////
+////////
+//////// product variants
+////////
+////////
+.b-list-product-variant{
+    margin: 10px 0 25px;
+}
+.b-list-ceil__product-variant-photos{
+    width: 100px;
+}
+.b-list-ceil__product-variant-name{
+    width: 400px;
+    padding: 0;
+}
+.b-list-ceil__product-variant-sku{
+    width: 200px;
+    padding: 0;
+}
+.b-list-ceil__product-variant-price{
+    width: 100px;
+    padding: 0;
+}
+.b-list-ceil__product-variant-old_price{
+    width: 100px;
+    padding: 0;
+}
+.b-list-ceil__product-variant-input{
+    @extend .form-control;
+
+    border: none;
+    border-radius: 0;
+
+    &:focus{
+        box-shadow:inset 0 0 2px 1px $brand-primary;
     }
 }

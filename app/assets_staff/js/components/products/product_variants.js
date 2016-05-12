@@ -1,36 +1,44 @@
-appComponents.controller('ProductVariantsController', function ($rootScope, $scope, $mdToast, ProductVariants) {
+appComponents.controller('ProductVariantsController', function ($scope, $timeout, ProductVariants) {
 
-    // $scope.setProductId = function (product_id) {
-    //     $scope.product_id = product_id;
-    // }
+    $scope.ProductVariantForm = {
+        show: false
+    };
+
+    function setProductVariants(res) {
+        $timeout(function () {
+            $scope.product_variants = res.data.product_variants;
+            console.log($scope.product_variants);
+        }, 0);
+    }
 
     $scope.getProductVariants = function (product_id) {
         ProductVariants.index(product_id)
             .then(function (res) {
-                if (res.status == 200) {
-                    $scope.product_variants = res.data;
-                }
+                $scope.product_variants = res.data.product_variants;
             })
     };
 
 
-    $scope.updateProduct = function (product_id, data) {
-        Product.put(product_id, data)
+    $scope.newProductVariant = function (product_id) {
+        $scope.ProductVariantForm = {
+            sku: 'sku',
+            name: 'name',
+            price: 1000,
+            old_price: 500,
+            product_id: product_id
+        }
+        ProductVariants.create(product_id, $scope.ProductVariantForm)
             .then(function (res) {
-                if (res.status == 200) {
-                    showCustomToast('Продукт ' + product_id + ' обновлен!')
-                    $scope['staff_product_hit_' + product_id] = res.data.hit;
-                }
-            })
-    }
+                setProductVariants(res);
+            });
+    };
 
-    function showCustomToast(text) {
-        var toast = $mdToast.simple()
-            .textContent(text)
-            .action('Закрыть')
-            .hideDelay(1500)
-            .position('bottom right');
-        $mdToast.show(toast);
+
+    $scope.updateProductVariant = function (data) {
+        ProductVariants.update(data.product_id, data.id, data)
+            .then(function (res) {
+                setProductVariants(res);
+            });
     };
 
 
@@ -45,13 +53,20 @@ appComponents.service('ProductVariants', function ($http) {
                 method: "get"
             })
         },
-        put: function (id, obj) {
+        create: function (product_id, obj) {
             return $http({
-                url: Routes.staff_api_v1_product_path(id),
+                url: Routes.staff_api_v1_product_product_variants_path(product_id),
+                method: "post",
+                data: obj
+            });
+        },
+        update: function (product_id, id, obj) {
+            return $http({
+                url: Routes.staff_api_v1_product_product_variant_path(product_id, id),
                 method: "put",
                 data: obj
             });
-        }
+        },
     };
 });
 
