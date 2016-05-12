@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
   has_many :categories, through: :products_categories
 
   has_many :photos, as: :image
+  has_many :product_variants
 
   validates :name, presence: true
 

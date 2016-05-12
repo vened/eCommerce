@@ -32,6 +32,11 @@
                     <%= render partial: 'form', locals: { f: f } %>
                 </md-content>
             </md-tab>
+            <md-tab label="<%= t('products.product_variants') %>" md-active="'true'">
+                <md-content class="md-padding">
+                    <%= render partial: 'form_product_variants', locals: { f: f } %>
+                </md-content>
+            </md-tab>
             <md-tab label="<%= t('products.photo') %>">
                 <md-content class="md-padding">
                     <%= render partial: 'form_photo', locals: { f: f } %>

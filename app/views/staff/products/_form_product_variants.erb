@@ -1,0 +1,14 @@
+<section
+class="form-horizontal"
+ng-controller="ProductVariantsController"
+ng-init="getProductVariants(<%= @staff_product.id %>)"
+>
+
+  {{product_variants}}
+
+  <span class="btn btn-primary">
+    <i class="fa fa-plus-circle"></i>
+    <%= t('products.product_variant_add') %>
+  </span>
+
+</section>

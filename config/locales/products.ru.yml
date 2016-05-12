@@ -56,4 +56,6 @@ ru:
     destroy_success: Товар успешно удален
     show_site: Просмотр на сайте
     destroy: Удалить товар
-    photo: Изображения
+    photo: Дополнительные изображения
+    product_variants: Варианты товара
+    product_variant_add: Добавить вариант товара
