@@ -1,9 +1,8 @@
 class CreateProducts < ActiveRecord::Migration
   def change
     create_table :products do |t|
-      t.string :sku
-      t.string :name
-      t.string :slug
+      t.string :name, index: true
+      t.string :slug, index: true
       t.boolean :hit
       t.boolean :new
       t.boolean :action
@@ -13,8 +12,6 @@ class CreateProducts < ActiveRecord::Migration
       t.string :meta_title
       t.string :meta_key
       t.string :meta_desc
-
-      t.belongs_to :category, index: true
 
       t.timestamps null: false
     end
