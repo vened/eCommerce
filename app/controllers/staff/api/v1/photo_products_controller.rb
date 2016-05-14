@@ -2,24 +2,14 @@ module Staff
   module Api
     module V1
       class PhotoProductsController < StaffApiController
-
-        def index
-          @staff_product       = Product.first
-          @staff_api_v1_photos = @staff_product.photos
-
-          render json: @staff_api_v1_photos
-        end
-
+        before_action :set_staff_api_v1_product, only: [:create, :destroy]
 
         def create
-          @staff_product = Product.find_by_slug(params[:product_id])
-          @staff_product.photos.create(attach: params[:attach])
-
-          if @staff_product.save
-            # format.json { render :index, status: :created, location: staff_api_v1_photos_path }
-            render json: @staff_product.photos
+          @staff_api_v1_product.photos.create(attach: params[:attach])
+          if @staff_api_v1_product.save
+            render json: @staff_api_v1_product.photos
           else
-            format.json { render json: @staff_product.errors, status: :unprocessable_entity }
+            format.json { render json: @staff_api_v1_product.errors, status: :unprocessable_entity }
           end
         end
 
@@ -27,12 +17,15 @@ module Staff
         def destroy
           @staff_photo_product = Photo.find(params[:id])
           @staff_photo_product.destroy
-          @staff_product = Product.find(params[:product_id])
-          render json: @staff_product.photos
+          render json: @staff_api_v1_product.photos
         end
 
 
         private
+        def set_staff_api_v1_product
+          @staff_api_v1_product = Product.find_by_id(params[:product_id])
+        end
+
         def staff_api_photos_params
           params.require(:photo).permit(:name, :attach, :image_id, :image_type)
         end

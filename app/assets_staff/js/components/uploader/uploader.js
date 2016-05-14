@@ -1,19 +1,20 @@
-appComponents.directive('uploaderComponent', function (FileUploader, $templateCache) {
+appComponents.directive('productPhotoUploader', function (FileUploader, $templateCache, $http) {
     return {
         restrict: 'E',
-        template: $templateCache.get('uploader/uploaderComponent.html'),
+        template: $templateCache.get('uploader/photoUploader.html'),
         scope: {
-            uploadUrl: '@uploadUrl'
+            productId: '=',
+            photos: '='
         },
         controller: function ($rootScope, $scope) {
 
-            $scope.selectFile = function()
-            {
+
+            $scope.selectFile = function () {
                 $("#file").click();
             }
 
             var uploader = $scope.uploader = new FileUploader({
-                url: $scope.uploadUrl,
+                url: Routes.staff_api_v1_product_photo_products_path($scope.productId),
                 alias: 'attach',
                 autoUpload: true
             });
@@ -30,59 +31,21 @@ appComponents.directive('uploaderComponent', function (FileUploader, $templateCa
 
             uploader.onCompleteItem = function (item, response) {
                 item.remove();
-                $rootScope.$broadcast('onCompleteItemUpload', response);
+                $scope.photos = response;
             };
-
-        }
-    }
-});
-
-appComponents.directive('photosUpload', function ($templateCache, $http) {
-    return {
-        restrict: 'E',
-        template: $templateCache.get('uploader/photosUploaded.html'),
-        scope: {
-            photos: '=',
-            uploadUrl: '@uploadUrl',
-            productId: '='
-        },
-        controller: function ($rootScope, $scope) {
-
-            $scope.findPhoto = function () {
-                // UploadedPhotosService.find($scope.resourceName, $scope.resourceId)
-                //     .success(function (val) {
-                //         $scope.photos = val;
-                //     })
-            }
-            $scope.findPhoto();
 
 
             $scope.photoDestroy = function (photo_id) {
                 $http.delete(Routes.staff_api_v1_product_photo_product_path($scope.productId, photo_id))
-                    .then(function (res){
+                    .then(function (res) {
                         $scope.photos = res.data;
                     })
             }
 
 
-            $scope.saveDataPhoto = true;
-            $scope.submit = function (photo) {
-                $scope.saveDataPhoto = false;
-                photo.photo = null;
-                // UploadedPhotosService.edit(photo).success(function (data) {
-                //     $scope.saveDataPhoto = true;
-                // })
-            }
-
-
-            $scope.$on('onCompleteItemUpload', function (event, data) {
-                $scope.photos = data;
-            });
-
         }
     }
 });
-
 
 appComponents.controller('UploaderController', function ($scope, FileUploader, $http) {
 

@@ -1,6 +1,5 @@
 <md-content class="md-padding">
-    <photos-upload upload-url="<%= staff_api_v1_product_photo_products_path(@staff_product) %>"
-                   photos="<%= @staff_product.photos.to_json %>"
-                   product-id="<%= @staff_product.id %>"
-    ></photos-upload>
+    <product-photo-uploader product-id="<%= @staff_product.id %>"
+                            photos="<%= @staff_product.photos.to_json %>"
+    ></product-photo-uploader>
 </md-content>

@@ -11,7 +11,8 @@
     border: 1px solid $gray-light-2;
 }
 .b-photo__edit,
-.b-photo__img{
+.b-photo__img,
+.b-photo__img-upload{
     position: absolute;
     top: 0;
     bottom: 0;
@@ -39,6 +40,17 @@
         opacity: 1;
         background-color: rgba(0, 0, 0, .5);
     }
+}
+.b-photo__img-upload{
+    display: flex;
+
+    background-color: $gray-light-3;
+    border: 3px solid $white;
+}
+.b-photo__img-upload-icons{
+    margin: auto;
+    color: $gray-light-2;
+    font-size: 4rem;
 }
 .md-grid-tile__gray{
     background-color: $gray-light-3;

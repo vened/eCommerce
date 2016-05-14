@@ -48,7 +48,7 @@ module Staff
         end
 
         def set_staff_api_v1_product_variant
-          @staff_api_v1_product_variant = ProductVariant.find(params[:id])
+          @staff_api_v1_product_variant = ProductVariant.find_by_id(params[:id])
         end
 
         def staff_api_v1_product_variants_params
