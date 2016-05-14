@@ -1,7 +1,7 @@
-<section
-class="form-horizontal"
-ng-controller="ProductVariantsController"
-ng-init="getProductVariants(<%= @staff_product.id %>)"
+<section class="form-horizontal"
+         ng-cloak=""
+         ng-controller="ProductVariantsController"
+         ng-init="getProductVariants(<%= @staff_product.id %>)"
 >
 
     <section class="b-list b-list-product-variant">
@@ -45,9 +45,9 @@ ng-init="getProductVariants(<%= @staff_product.id %>)"
             </div>
             <div class="b-list-ceil b-list-ceil__product-variant-sku">
                 <textarea class="b-list-ceil__product-variant-input"
-                       ng-init="product_variant[$index]['sku'] = product_variant.sku"
-                       ng-model="product_variant[$index]['sku']"
-                       ng-blur="updateProductVariant({
+                          ng-init="product_variant[$index]['sku'] = product_variant.sku"
+                          ng-model="product_variant[$index]['sku']"
+                          ng-blur="updateProductVariant({
                                               product_id: <%= @staff_product.id %>,
                                               id: product_variant.id,
                                               sku: product_variant[$index]['sku'],
@@ -56,9 +56,9 @@ ng-init="getProductVariants(<%= @staff_product.id %>)"
             </div>
             <div class="b-list-ceil b-list-ceil__product-variant-price">
                 <textarea class="b-list-ceil__product-variant-input"
-                       ng-init="product_variant[$index]['price'] = product_variant.price"
-                       ng-model="product_variant[$index]['price']"
-                       ng-blur="updateProductVariant({
+                          ng-init="product_variant[$index]['price'] = product_variant.price"
+                          ng-model="product_variant[$index]['price']"
+                          ng-blur="updateProductVariant({
                                               product_id: <%= @staff_product.id %>,
                                               id: product_variant.id,
                                               price: product_variant[$index]['price'],
@@ -67,9 +67,9 @@ ng-init="getProductVariants(<%= @staff_product.id %>)"
             </div>
             <div class="b-list-ceil b-list-ceil__product-variant-old_price">
                 <textarea class="b-list-ceil__product-variant-input"
-                       ng-init="product_variant[$index]['old_price'] = product_variant.old_price"
-                       ng-model="product_variant[$index]['old_price']"
-                       ng-blur="updateProductVariant({
+                          ng-init="product_variant[$index]['old_price'] = product_variant.old_price"
+                          ng-model="product_variant[$index]['old_price']"
+                          ng-blur="updateProductVariant({
                                               product_id: <%= @staff_product.id %>,
                                               id: product_variant.id,
                                               old_price: product_variant[$index]['old_price'],
