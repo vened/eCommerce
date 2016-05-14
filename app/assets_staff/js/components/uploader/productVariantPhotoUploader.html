@@ -1,0 +1,46 @@
+<md-grid-list
+        md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="4"
+        md-row-height-gt-md="1:1"
+        md-gutter="12px" md-gutter-gt-sm="8px">
+
+    <md-grid-tile class="md-grid-tile__gray" ng-repeat="photo in photos track by $index">
+        <div class="b-photo">
+            <div class="b-photo__img"
+                 style="background-image: url('{{ photo.attach.thumb.url }}')">
+            </div>
+            <div class="b-photo__edit">
+                <div class="btn-group btn-group-sm">
+                    <div class="btn btn-danger"
+                         ng-click="photoDestroy(photo.id)">
+                        <i class="fa fa-trash"></i>
+                        <md-tooltip md-direction="top">
+                            Удалить фото
+                        </md-tooltip>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-grid-tile>
+    <md-grid-tile class="md-grid-tile__gray">
+        <div class="b-photo">
+            <div class="b-photo__img-upload"
+                 ng-click="selectFile()">
+                <i class="fa fa-upload b-photo__img-upload-icons" aria-hidden="true">
+                    <md-tooltip md-direction="top">
+                        Загрузить фото
+                    </md-tooltip>
+                </i>
+            </div>
+            <input type="file" nv-file-select="" uploader="uploader" multiple style="display:none" id="file"/>
+        </div>
+    </md-grid-tile>
+
+</md-grid-list>
+
+<div ng-show="uploader.queue.length > 0">
+    Прогресс загрузки
+    <div class="progress">
+        <div ng-style="{ 'width': uploader.progress + '%' }" role="progressbar" class="progress-bar"
+             style="width: 0%;"></div>
+    </div>
+</div>

@@ -85,16 +85,21 @@ $b-list-item-ceil-padding-horizontal: 10px;
 ////////
 .b-list-product-variant{
     margin: 10px 0 25px;
+
+    .b-list-ceil{
+        position: relative;
+        display: block;
+    }
 }
 .b-list-ceil__product-variant-photos{
-    width: 100px;
+    width: 450px;
 }
 .b-list-ceil__product-variant-name{
-    width: 400px;
+    width: 300px;
     padding: 0;
 }
 .b-list-ceil__product-variant-sku{
-    width: 200px;
+    width: 100px;
     padding: 0;
 }
 .b-list-ceil__product-variant-price{
@@ -106,12 +111,13 @@ $b-list-item-ceil-padding-horizontal: 10px;
     padding: 0;
 }
 .b-list-ceil__product-variant-action{
-    width: 100px;
+    width: 50px;
     padding: 3px $b-list-item-ceil-padding-horizontal;
 }
 .b-list-ceil__product-variant-input{
     @extend .form-control;
 
+    height: 100%;
     border: none;
     border-radius: 0;
 

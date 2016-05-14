@@ -17,6 +17,9 @@ Rails.application.routes.draw do
           resources :photo_products, only: [:create, :destroy]
           resources :product_variants, only: [:index, :create, :update, :destroy]
         end
+        resources :product_variants, only: [] do
+          resources :photo_product_variants, only: [:create, :destroy]
+        end
       end
     end
 

@@ -1,9 +1,9 @@
 appComponents.directive('productPhotoUploader', function (FileUploader, $templateCache, $http) {
     return {
         restrict: 'E',
-        template: $templateCache.get('uploader/photoUploader.html'),
+        template: $templateCache.get('uploader/productPhotoUploader.html'),
         scope: {
-            productId: '=',
+            itemId: '=',
             photos: '='
         },
         controller: function ($rootScope, $scope) {
@@ -14,7 +14,7 @@ appComponents.directive('productPhotoUploader', function (FileUploader, $templat
             }
 
             var uploader = $scope.uploader = new FileUploader({
-                url: Routes.staff_api_v1_product_photo_products_path($scope.productId),
+                url: Routes.staff_api_v1_product_photo_products_path($scope.itemId),
                 alias: 'attach',
                 autoUpload: true
             });
@@ -36,7 +36,7 @@ appComponents.directive('productPhotoUploader', function (FileUploader, $templat
 
 
             $scope.photoDestroy = function (photo_id) {
-                $http.delete(Routes.staff_api_v1_product_photo_product_path($scope.productId, photo_id))
+                $http.delete(Routes.staff_api_v1_product_photo_product_path($scope.itemId, photo_id))
                     .then(function (res) {
                         $scope.photos = res.data;
                     })
@@ -47,19 +47,73 @@ appComponents.directive('productPhotoUploader', function (FileUploader, $templat
     }
 });
 
+
+appComponents.directive('productVariantPhotoUploader', function (FileUploader, $templateCache, $http) {
+    return {
+        restrict: 'E',
+        template: $templateCache.get('uploader/productVariantPhotoUploader.html'),
+        scope: {
+            itemId: '=',
+            photos: '='
+        },
+        controller: function ($rootScope, $scope) {
+
+
+            $scope.selectFile = function () {
+                $("#file").click();
+            }
+
+            var uploader = $scope.uploader = new FileUploader({
+                url: Routes.staff_api_v1_product_variant_photo_product_variants_path($scope.itemId),
+                alias: 'attach',
+                autoUpload: true
+            });
+
+            // FILTERS
+            uploader.filters.push({
+                name: 'imageFilter',
+                fn: function (item) {
+                    var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+                    return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+                }
+            });
+
+
+            uploader.onCompleteItem = function (item, response) {
+                item.remove();
+                $scope.photos = response;
+            };
+
+
+            $scope.photoDestroy = function (photo_id) {
+                $http.delete(Routes.staff_api_v1_product_variant_photo_product_variant_path($scope.itemId, photo_id))
+                    .then(function (res) {
+                        $scope.photos = res.data;
+                    })
+            }
+
+
+        }
+    }
+});
+
+
+
+
+
 appComponents.controller('UploaderController', function ($scope, FileUploader, $http) {
 
-    $scope.productId = null;
+    $scope.itemId = null;
 
 
     var uploader = $scope.uploader = new FileUploader();
 
     // console.log(Routes.staff_api_v1_product_photo_products_path(1))
 
-    // $http.get(Routes.staff_api_v1_product_photo_products_path($scope.productId));
+    // $http.get(Routes.staff_api_v1_product_photo_products_path($scope.itemId));
 
     $scope.startUpload = function () {
-        $scope.uploader.url = Routes.staff_api_v1_product_photo_products_path($scope.productId);
+        $scope.uploader.url = Routes.staff_api_v1_product_photo_products_path($scope.itemId);
         console.log($scope.uploader)
         setTimeout(function () {
             console.log($scope.uploader)
