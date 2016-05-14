@@ -49,9 +49,22 @@ class Product < ActiveRecord::Base
   end
 
   # получение фото товара
-  # product.first_photo
-  def first_photo
-    self.photos.take
+  # product.photo
+  def photo
+    variant = self.product_variants.first
+
+    product_photo = self.photos.first
+
+    if variant.present?
+      photo = variant.photos.first
+      if photo.present?
+        return photo
+      else
+        return product_photo
+      end
+    else
+      return product_photo
+    end
   end
 
 end

@@ -9,8 +9,8 @@ appComponents.directive('productPhotoUploader', function (FileUploader, $templat
         controller: function ($rootScope, $scope) {
 
 
-            $scope.selectFile = function () {
-                $("#file").click();
+            $scope.selectFileProductPhotoUploader = function () {
+                $("#productPhotoUploader").click();
             }
 
             var uploader = $scope.uploader = new FileUploader({
@@ -59,8 +59,8 @@ appComponents.directive('productVariantPhotoUploader', function (FileUploader, $
         controller: function ($rootScope, $scope) {
 
 
-            $scope.selectFile = function () {
-                $("#file").click();
+            $scope.selectFileProductVariantPhotoUploader = function () {
+                $("#productVariantPhotoUploader").click();
             }
 
             var uploader = $scope.uploader = new FileUploader({

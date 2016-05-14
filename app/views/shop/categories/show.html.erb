@@ -1,11 +1,11 @@
 <%= render partial: "shared/meta",
-           locals:  { meta_title: @category.meta_title,
-                      meta_key:   @category.meta_key,
-                      meta_desc:  @category.meta_desc,
-                      url:        shop_category_url(@category),
-                      image:      @category.photo.url,
-                      canonical:  false,
-                      noindex:    false } %>
+           locals: {meta_title: @category.meta_title,
+                    meta_key: @category.meta_key,
+                    meta_desc: @category.meta_desc,
+                    url: shop_category_url(@category),
+                    image: @category.photo.url,
+                    canonical: false,
+                    noindex: false} %>
 
 <p id="notice"><%= notice %></p>
 
@@ -49,6 +49,11 @@
     <%= @category.active %>
 </p>
 
+<div class="b-product-card-container">
+    <%- @category.products.each do |product| %>
+        <%= render partial: "shop/shared/product_card", locals: {product: product} %>
+    <% end %>
+</div>
 
 <div class="row">
     <%- @category.products.each do |product| %>

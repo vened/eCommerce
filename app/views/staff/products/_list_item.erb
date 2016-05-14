@@ -10,7 +10,7 @@
         </div>
         <div class="b-list-ceil b-list-ceil__product-title">
 
-            <%- photo = staff_product.first_photo %>
+            <%- photo = staff_product.photo %>
             <div class="b-list-ceil__product-photo">
                 <%- if photo.present? %>
                     <%= image_tag photo.attach.mini %>

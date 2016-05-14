@@ -1,0 +1,49 @@
+<%- product_link = shop_product_path(product) %>
+
+<div class="b-product-card">
+
+    <div class="b-product-card__head">
+        <%- if true %>
+            <noindex>
+                <div class="b-product-card__sale">
+                    Cкидка:&nbsp;
+                    <%= number_to_percentage(20, precision: 0) %>
+                </div>
+            </noindex>
+        <% end %>
+        <%= link_to product_link, class: 'b-product-card__image-container', title: product.name do %>
+            <%- if product.photo.present? %>
+                <%= image_tag product.photo.attach, class: 'b-product-card__image', alt: product.name, title: product.name %>
+            <%- else %>
+                <div class="b-product-card__image"></div>
+            <% end %>
+        <% end %>
+    </div>
+
+    <div class="b-product-card__body">
+        <noindex>
+            <h3 class="b-product-card__title">
+                <%= link_to product.name, product_link, title: product.name, class: 'link' %>
+            </h3>
+        </noindex>
+        <div class="b-product-card__properties">
+            <div class="b-product-card__property">
+                product.type
+            </div>
+        </div>
+
+        <div class="b-product-card__price-container">
+            <noindex>
+                <div class="b-product-card__price b-product-card__price_old">
+                    <%#= number_to_currency(product.product_variant.first.price, locale: :ru) %>
+                </div>
+            </noindex>
+            <div class="b-product-card__price">
+                <span class="b-product-card__price-value">
+                    <%#= number_to_currency(product.product_variant.first.price, locale: :ru) %>
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>
