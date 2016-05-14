@@ -1,6 +1,10 @@
 <div class="form-group">
-	<label>Выбрать фотографии для загрузки</label>
-	<input type="file" nv-file-select="" uploader="uploader" multiple/>
+
+	<div class="btn btn-danger" ng-click="selectFile()">
+		<i class="fa fa-upload" aria-hidden="true"></i>
+	</div>
+
+	<input type="file" nv-file-select="" uploader="uploader" multiple style="display:none" id="file"/>
 
 	<div class="row" ng-show="uploader.queue.length > 0">
 		<div class="col-sm-12">

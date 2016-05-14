@@ -7,6 +7,11 @@ appComponents.directive('uploaderComponent', function (FileUploader, $templateCa
         },
         controller: function ($rootScope, $scope) {
 
+            $scope.selectFile = function()
+            {
+                $("#file").click();
+            }
+
             var uploader = $scope.uploader = new FileUploader({
                 url: $scope.uploadUrl,
                 alias: 'attach',
@@ -38,14 +43,10 @@ appComponents.directive('photosUpload', function ($templateCache, $http) {
         template: $templateCache.get('uploader/photosUploaded.html'),
         scope: {
             photos: '=',
-            productId: '=',
-            showForm: '@'
+            uploadUrl: '@uploadUrl',
+            productId: '='
         },
         controller: function ($rootScope, $scope) {
-
-            console.log($scope.productId)
-
-            $scope.showForm = false;
 
             $scope.findPhoto = function () {
                 // UploadedPhotosService.find($scope.resourceName, $scope.resourceId)
@@ -75,8 +76,6 @@ appComponents.directive('photosUpload', function ($templateCache, $http) {
 
 
             $scope.$on('onCompleteItemUpload', function (event, data) {
-                console.log(event)
-                console.log(data)
                 $scope.photos = data;
             });
 
