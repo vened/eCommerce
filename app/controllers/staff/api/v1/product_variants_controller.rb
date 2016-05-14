@@ -35,10 +35,9 @@ module Staff
         end
 
         def destroy
-          @staff_product.destroy
+          @staff_api_v1_product_variant.destroy
           respond_to do |format|
-            format.html { redirect_to staff_products_url, notice: 'Product was successfully destroyed.' }
-            format.json { head :no_content }
+            format.json { render json: @staff_api_v1_product.product_variants.order(:id), status: :ok }
           end
         end
 

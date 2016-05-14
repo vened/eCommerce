@@ -32,3 +32,6 @@ ru:
         price: Цена
         old_price: Старая цена
         photos: Фото
+
+  product_variant:
+    destroy: Удалить вариант товара

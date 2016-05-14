@@ -105,6 +105,10 @@ $b-list-item-ceil-padding-horizontal: 10px;
     width: 100px;
     padding: 0;
 }
+.b-list-ceil__product-variant-action{
+    width: 100px;
+    padding: 3px $b-list-item-ceil-padding-horizontal;
+}
 .b-list-ceil__product-variant-input{
     @extend .form-control;
 

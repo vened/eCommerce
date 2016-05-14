@@ -37,9 +37,17 @@ appComponents.controller('ProductVariantsController', function ($scope, $timeout
     $scope.updateProductVariant = function (data) {
         ProductVariants.update(data.product_id, data.id, data)
             .then(function (res) {
-                setProductVariants(res);
+                // setProductVariants(res);
             });
     };
+
+
+    $scope.destroyProductVariant = function (data) {
+        ProductVariants.destroy(data.product_id, data.id)
+            .then(function (res) {
+                setProductVariants(res);
+            })
+    }
 
 
 });
@@ -65,6 +73,12 @@ appComponents.service('ProductVariants', function ($http) {
                 url: Routes.staff_api_v1_product_product_variant_path(product_id, id),
                 method: "put",
                 data: obj
+            });
+        },
+        destroy: function (product_id, id) {
+            return $http({
+                url: Routes.staff_api_v1_product_product_variant_path(product_id, id),
+                method: "delete"
             });
         },
     };
